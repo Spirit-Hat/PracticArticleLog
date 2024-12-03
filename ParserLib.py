@@ -4,6 +4,7 @@ import json
 import os
 from collections import defaultdict
 from typing import Optional, List, Dict
+from fake_useragent import UserAgent
 
 import requests
 from bs4 import BeautifulSoup
@@ -19,14 +20,19 @@ def get_full_page_content(url: str) -> Optional[str]:
     Returns:
         Optional[str]: The text content of the <body> tag, or None if not found.
     """
-    try:
 
-        headers = {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+    def get_random_headers():
+        ua = UserAgent()
+        return {
+            'User-Agent': ua.random,
+            'Accept-Language': 'en-GB,en;uk;q=0.9',
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+            'Connection': 'close',
+            'DNT': '1'
         }
 
-        response = requests.get(url, headers=headers)
-
+    try:
+        response = requests.get(url, headers=get_random_headers())
         response.raise_for_status()
 
         if not response.text.strip():
@@ -191,7 +197,7 @@ def download_pdfs_from_urls() -> None:
 
 
             for counter, url in enumerate(pdf_links, start=1):
-                download_link = get_full_page_content(url).find("a", class_="btn btn-primary")["href"]
+                download_link = get_full_page_content(url).find("a", class_="btn-primary")["href"]
                 pdf_filename = os.path.join(url_folder, f"{counter}.pdf")
                 try:
                     print(f"Downloading PDF #{counter} from {download_link}...")

@@ -125,6 +125,37 @@ def find_blocks_by_title(pdf_path, input_title):
     pdf_document.close()
     return found_blocks
 
+def find_uppercase_blocks(pdf_path):
+    """
+    Ищет блоки текста, которые полностью состоят из заглавных букв.
+
+    :param pdf_path: Путь к PDF файлу
+    :return: Список найденных блоков с текстом из заглавных букв
+    """
+    uppercase_blocks = []
+
+    # Открываем PDF-документ
+    pdf_document = fitz.open(pdf_path)
+
+    # Проходим по всем страницам
+    for page_num in range(pdf_document.page_count):
+        page = pdf_document.load_page(page_num)
+
+        # Извлекаем текст в виде блоков
+        blocks = page.get_text("dict")["blocks"]
+
+        for block in blocks:
+            if block["type"] == 0:  # Если это текстовый блок
+                block_text = " ".join(
+                    span["text"] for line in block["lines"] for span in line["spans"]
+                ).strip()
+
+                # Проверяем, состоит ли текст только из заглавных букв (исключая цифры и символы)
+                if block_text and block_text.isupper():
+                    uppercase_blocks.append(block_text)
+
+    pdf_document.close()
+    return uppercase_blocks
 
 if __name__ == '__main__':
     # url = "https://jais.net.ua/index.php/files/archive"
@@ -132,4 +163,7 @@ if __name__ == '__main__':
     # process_table(url, years_to_find)
     # download_pdfs_from_urls()
     # main()
-    print(find_blocks_by_title(input_title="MATHEMATICS AND LIVING NATURE",pdf_path=r"2006\1\1.pdf" ))
+    # print(find_blocks_by_title(input_title="MATHEMATICS AND LIVING NATURE",pdf_path=r"2006\1\1.pdf" ))
+    uppercase_blocks = find_uppercase_blocks(r"2006\1\1.pdf")
+    for block in uppercase_blocks:
+        print(block)

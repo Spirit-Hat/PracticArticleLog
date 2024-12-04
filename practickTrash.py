@@ -104,14 +104,31 @@ def find_uppercase_blocks_with_details(pdf_path):
 def print_pretty_df(df):
     print(tabulate(df, headers="keys", tablefmt="grid", showindex=False))
 
+def get_literature_count(pdf_path):
+    pdf_document = fitz.open(pdf_path)
+    last_page_number = pdf_document.page_count - 1
+    last_page = pdf_document.load_page(last_page_number)
+    blocks = last_page.get_text("dict")["blocks"]
+    pattern = r"^\d+\.$"
+    matching_numbers = []
+    for block in blocks:
+        if "lines" in block:
+            for line in block["lines"]:
+                for span in line["spans"]:
+                    text = span["text"].strip()
+
+                    if re.match(pattern, text):
+                        matching_numbers.append(text)
+    return matching_numbers[-1][:-1]
 
 def main():
     article_df = pd.read_json("articles_data.json")
-    finish_result_df = pd.DataFrame(
-        columns=['Parent_Key', 'UDC', 'Title', 'Language', 'Category', 'Authors', 'Annotation'])
+    finish_result_df = pd.DataFrame(columns=['Parent_Key', 'UDC', 'year', 'pages', 'used_literature', 'Title', 'Language', 'Category', 'Authors', 'Annotation'])
 
     for id_key in article_df.columns:
         pdf_path = article_df.loc['pdf_url', id_key]
+        year = pdf_path[:4]
+        pages = article_df.loc['pages', id_key]
         print(f"ID: {id_key}, PDF Path: {pdf_path}")
         print("pdf_path" + pdf_path)
 
@@ -132,8 +149,9 @@ def main():
         # print(data)
         # print_pretty_df(data)
         # print("################## ENd pdf  #####################")
-        finish_result_df = process_data(data, finish_result_df, id_key)
-        # print_pretty_df(finish_result_df)
+        used_literature = get_literature_count(pdf_path)
+        finish_result_df = process_data(data, finish_result_df, id_key, year, pages, used_literature)
+
 
     # print("################## ALL DATA END FULL  #####################")
     # print_pretty_df(finish_result_df)
@@ -203,9 +221,9 @@ def find_blocks_with_left_margin(pdf_path, target_left_margin, page_numbers):
     return results
 
 
-def process_data(data, df=None, index=0):
+def process_data(data, df=None, index=0, year=2006, pages="", used_literature=0):
     if df is None:
-        df = pd.DataFrame(columns=['Parent_Key', 'UDC', 'Title', 'Language', 'Category', 'Authors', 'Annotation'])
+        df = pd.DataFrame(columns=['Parent_Key', 'UDC', 'year', 'pages', 'used_literature', 'Title', 'Language', 'Category', 'Authors', 'Annotation'])
 
     rows = []
 
@@ -219,6 +237,9 @@ def process_data(data, df=None, index=0):
             rows.append({
                 'Parent_Key': index,
                 'UDC': udc,
+                'year': year,
+                'pages': pages,
+                'used_literature': used_literature,
                 'Title': items[2],
                 'Language': title_language[0],
                 'Category': category,
@@ -240,7 +261,10 @@ def process_data(data, df=None, index=0):
 
                 rows.append({
                     'Parent_Key': index,
-                    'UDC': None,  #
+                    'UDC': None,
+                    'year': year,
+                    'pages': pages,
+                    'used_literature': used_literature,
                     'Title': title,
                     'Language': title_language[0],
                     'Category': category,
@@ -274,73 +298,81 @@ def debug():
     print("################## END #####################")
 
 
+def format_and_clean_text(input_text):
+    if not input_text:
+        return ""
+    lines = input_text.strip().split("\n")
+    formatted_lines = []
+    capitalize_flag = False
+    for index, line in enumerate(lines, start=0):
+        line = line.strip()
+        if capitalize_flag or index == 0:
+            line = line.capitalize()
+        else:
+            line = line.lower()
+        capitalize_flag = line.endswith(".")
+        formatted_lines.append(line)
+
+    return " ".join(formatted_lines)
+
+
 if __name__ == '__main__':
     # url = "https://jais.net.ua/index.php/files/archive"
     # years_to_find = [2006, 2007]
     # process_table(url, years_to_find)
     # download_pdfs_from_urls()
 
-    # main()
+    main()
     result = []
     df = pd.read_csv('finish_result_df.csv')
     grouped = df.groupby('Parent_Key')
-    for parent_key, group in grouped:
-        entry = {
-            "UDC": group['UDC'].iloc[0] if 'UDC' in group.columns else None,
-            "key": parent_key,
-            "ru": {
-                "title": group[group['Language'] == 'ru']['Title'].iloc[0] if not group[
-                    group['Language'] == 'ru'].empty else None,
-                "author": group[group['Language'] == 'ru']['Annotation'].iloc[0] if not group[
-                    group['Language'] == 'ru'].empty else None,
-            },
-            "ua": {
-                "title": group[group['Language'] == 'ukr']['Title'].iloc[0] if not group[
-                    group['Language'] == 'ukr'].empty else None,
-                "author": group[group['Language'] == 'ukr']['Authors'].iloc[0] if not group[
-                    group['Language'] == 'ukr'].empty else None,
-                "annotation": group[group['Language'] == 'ukr']['Annotation'].iloc[0] if not group[
-                    group['Language'] == 'ukr'].empty else None,
-            },
-            "en": {
-                "title": group[group['Language'] == 'en']['Title'].iloc[0] if not group[
-                    group['Language'] == 'en'].empty else None,
-                "author": group[group['Language'] == 'en']['Authors'].iloc[0] if not group[
-                    group['Language'] == 'en'].empty else None,
-                "annotation": group[group['Language'] == 'en']['Annotation'].iloc[0] if not group[
-                    group['Language'] == 'en'].empty else None,
-            },
-        }
-        result.append(entry)
-
     with open("logs.txt", 'w', encoding="utf-8") as log_file:
-        for item in result:
-            print(item)
-            index = item['key']
+        for parent_key, group in grouped:
+            udc = group['UDC'].iloc[0] if 'UDC' in group.columns else None
+            udc = udc[4:]
+            key = parent_key
+            pages = group['pages'].iloc[0]
+            used_literature = group['used_literature'].iloc[0]
 
-            author_ua = item["ua"]["author"]
-            author_en = item["en"]["author"]
-            author_ru = item["ru"]["author"]
+            title_en = group[group['Language'] == 'en']['Title'].iloc[0] if not group[
+                group['Language'] == 'en'].empty else None
 
-            title_ua = item['ua']['title']
-            title_ru = item['ru']['title']
-            title_en = item['en']['title']
+            title_ua = group[group['Language'] == 'ukr']['Title'].iloc[0] if not group[
+                group['Language'] == 'ukr'].empty else None
 
-            annotation_ua = item['ua']['annotation']
-            annotation_en = item['en']['annotation']
+            title_ru = group[group['Language'] == 'ru']['Title'].iloc[0] if not group[
+                    group['Language'] == 'ru'].empty else None
 
-            udc = item['udc']
+            title_en = format_and_clean_text(title_en)
+            title_ua = format_and_clean_text(title_ua)
+            print(title_en)
+            title_ru = format_and_clean_text(title_ru)
+
+            author_ua = group[group['Language'] == 'ukr']['Authors'].iloc[0] if not group[
+                    group['Language'] == 'ukr'].empty else None
+
+            author_en = group[group['Language'] == 'en']['Authors'].iloc[0] if not group[
+                group['Language'] == 'en'].empty else None
+
+            author_ru = group[group['Language'] == 'ru']['Authors'].iloc[0] if not group[
+                    group['Language'] == 'ru'].empty else None
+
+            annotation_ua = group[group['Language'] == 'ukr']['Annotation'].iloc[0] if not group[
+                    group['Language'] == 'ukr'].empty else None
+
+            annotation_en = group[group['Language'] == 'en']['Annotation'].iloc[0] if not group[
+                    group['Language'] == 'en'].empty else None
 
             content = (f"###############################\n"
-                       f"########## ARTICLE {index} ##########\n"
+                       f"########## ARTICLE {key} ##########\n"
                        f"###############################\n"
-                       f"{index}) {author_en}\n"  # authors
+                       f"{key}) {author_en}\n"  # authors
                        f"{author_ua}\n"
                        f"{author_ru}\n"
                        f"\n"
-                       f"{title_ua}\n"  # titles 
-                       f"{title_en}\n"
+                       f"{title_ua}\n"  # titles
                        f"{title_ru}\n"
+                       f"{title_en}\n"
                        f"\n"
                        f"{udc}\n"  # UDC
                        f"\n"
@@ -348,4 +380,7 @@ if __name__ == '__main__':
                        f"{annotation_en}\n"
                        f"\n"
                        )
+
             log_file.writelines(content)
+
+

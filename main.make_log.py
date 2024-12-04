@@ -76,7 +76,7 @@ def find_blocks_with_left_margin(pdf_path, author_len, target_left_margin, page_
     return results
 
 
-def process_data(data, df=None, index=0, year=2006, pages="", used_literature=0):
+def process_data(data, df=None, index=0, year=2006, magazine_number=1, pages="", article_title="", used_literature=0):
     if df is None:
         df = pd.DataFrame(
             columns=['Parent_Key', 'UDC', 'year', 'pages', 'used_literature', 'Title', 'Language', 'Category',
@@ -96,14 +96,17 @@ def process_data(data, df=None, index=0, year=2006, pages="", used_literature=0)
             rows.append({
                 'Parent_Key': index,
                 'UDC': udc,
-                'year': year,
-                'pages': pages,
-                'used_literature': used_literature,
                 'Title': items[2],
                 'Language': title_language[0],
                 'Category': category,
                 'Authors': authors,
-                'Annotation': None
+                'Annotation': None,
+
+                'year': year,
+                'pages': pages,
+                'magazine_number': magazine_number,
+                'used_literature': used_literature,
+                'article_title': article_title
             })
 
         elif parent_key == next(reversed(data)):
@@ -121,14 +124,16 @@ def process_data(data, df=None, index=0, year=2006, pages="", used_literature=0)
                 rows.append({
                     'Parent_Key': index,
                     'UDC': None,
-                    'year': year,
-                    'pages': pages,
-                    'used_literature': used_literature,
                     'Title': title,
                     'Language': title_language[0],
                     'Category': category,
                     'Authors': authors,
-                    'Annotation': annotation
+                    'Annotation': annotation,
+
+                    'year': year,
+                    'pages': pages,
+                    'magazine_number': magazine_number,
+                    'used_literature': used_literature,
                 })
 
     new_df = pd.DataFrame(rows)
@@ -146,7 +151,12 @@ def main(ignore_ids: []):
     for id_key in article_df.columns:
         if id_key not in ignore_ids:
             pdf_path = article_df.loc['pdf_url', id_key]
+            article_title = article_df.loc['article', id_key]
             year = pdf_path[:4]
+
+            pattern = r"\\(\d+)\\"
+            magazine_number = re.findall(pattern, pdf_path)[0]
+
             pages = article_df.loc['pages', id_key]
             link = article_df.loc['link', id_key]
             author_len = article_df.loc['authors', id_key]
@@ -175,7 +185,13 @@ def main(ignore_ids: []):
             print_pretty_df(data)
             # print("################## ENd pdf  #####################")
             used_literature = get_literature_count(pdf_path)
-            finish_result_df = process_data(data, finish_result_df, id_key, year=year, pages=pages,
+            finish_result_df = process_data(data,
+                                            finish_result_df,
+                                            id_key,
+                                            year=year,
+                                            magazine_number=magazine_number,
+                                            pages=pages,
+                                            article_title=article_title,
                                             used_literature=used_literature)
 
     # print("################## ALL DATA END FULL  #####################")
@@ -185,7 +201,6 @@ def main(ignore_ids: []):
 
 
 def debug(id):
-    start_data = {}
     with open('input/articles_data.json', 'r') as file:
         start_data = json.load(file)
 
@@ -216,20 +231,21 @@ def debug(id):
     print("################## END #####################")
 
 
-if __name__ == '__main__':
-    # debug(id=107)
-    ignore_ids = [76, 77, 107, 137]
-    main(ignore_ids=ignore_ids)
-    result = []
-    df = pd.read_csv('result/finish_result_df.csv')
+def create_txt_log(input_file="result/finish_result_df.csv", output_file="result/logs.txt"):
+    df = pd.read_csv(input_file)
     grouped = df.groupby('Parent_Key')
-    with open("result/logs.txt", 'w', encoding="utf-8") as log_file:
+    with open(output_file, 'w', encoding="utf-8") as log_file:
         for parent_key, group in grouped:
             udc = group['UDC'].iloc[0] if 'UDC' in group.columns else None
             udc = udc[4:]
+
+            article_title = group['article_title'].iloc[0] if 'article_title' in group.columns else None
+            magazine_number = group['magazine_number'].iloc[0] if 'magazine_number' in group.columns else None
+            used_literature = group['used_literature'].iloc[0] if 'used_literature' in group.columns else None
+            year = group['year'].iloc[0] if 'year' in group.columns else None
+            pages = group['pages'].iloc[0] if 'pages' in group.columns else None
+
             key = parent_key
-            pages = group['pages'].iloc[0]
-            used_literature = group['used_literature'].iloc[0]
 
             title_en = group[group['Language'] == 'en']['Title'].iloc[0] if not group[
                 group['Language'] == 'en'].empty else None
@@ -242,7 +258,6 @@ if __name__ == '__main__':
 
             title_en = format_and_clean_text(title_en)
             title_ua = format_and_clean_text(title_ua)
-            print(title_en)
             title_ru = format_and_clean_text(title_ru)
 
             author_ua = group[group['Language'] == 'uk']['Authors'].iloc[0] if not group[
@@ -260,9 +275,17 @@ if __name__ == '__main__':
             annotation_en = group[group['Language'] == 'en']['Annotation'].iloc[0] if not group[
                 group['Language'] == 'en'].empty else None
 
-            content = (f"###############################\n"
-                       f"########## ARTICLE {key} ##########\n"
-                       f"###############################\n"
+            author_ru_formated = format_and_clean_text(author_ru, format_text=False)
+
+            template_desc = (f"{title_ru} / {author_ru_formated} // Проблемы управления и информатики. — {year}."
+                             f" — № {magazine_number}. — С. {pages}. — Бібліогр.: {used_literature} назв. — рос.")
+
+            padding = "#" * 40
+            key_padding = "#" * len(str(key))
+            content = (f"{padding}############{key_padding}{padding}\n"
+                       f"{padding}# ARTICLE {key} #{padding}\n"
+                       f"{padding}############{key_padding}{padding}\n"
+                       f"\n"
                        f"{key}) {author_en}\n"  # authors
                        f"{author_ua}\n"
                        f"{author_ru}\n"
@@ -271,11 +294,23 @@ if __name__ == '__main__':
                        f"{title_ru}\n"
                        f"{title_en}\n"
                        f"\n"
+                       f"{template_desc}\n"
+                       f"\n"
+                       f"{article_title}\n"
+                       f"\n"
                        f"{udc}\n"  # UDC
                        f"\n"
                        f"{annotation_ua}\n"  # annotation 
+                       f"\n"
                        f"{annotation_en}\n"
                        f"\n"
                        )
 
             log_file.writelines(content)
+
+
+if __name__ == '__main__':
+    # debug(id=107)
+    # ignore_ids = [76, 77, 107, 137]
+    # main(ignore_ids=ignore_ids)
+    create_txt_log()

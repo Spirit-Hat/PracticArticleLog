@@ -103,7 +103,7 @@ def get_literature_count(pdf_path):
                         matching_numbers.append(text)
     return matching_numbers[-1][:-1]
 
-def format_and_clean_text(input_text):
+def format_and_clean_text(input_text, format_text=True):
     if not input_text:
         return ""
     lines = input_text.strip().split("\n")
@@ -111,10 +111,13 @@ def format_and_clean_text(input_text):
     capitalize_flag = False
     for index, line in enumerate(lines, start=0):
         line = line.strip()
-        if capitalize_flag or index == 0:
-            line = line.capitalize()
-        else:
-            line = line.lower()
+
+        if format_text:
+            if capitalize_flag or index == 0:
+                line = line.capitalize()
+            else:
+                line = line.lower()
+
         capitalize_flag = line.endswith(".")
         formatted_lines.append(line)
 

@@ -1,9 +1,19 @@
 import re
 import fitz
+import numpy as np
+
+def find_and_remove_outlier_by_margin(blocks, tolerance=0.5):
+    left_margins = [block['left_margin'] for block in blocks]
+    deviations = np.abs(np.array(left_margins) - np.mean(left_margins))
+    outlier_index = np.argmax(deviations)
+    if deviations[outlier_index] > tolerance:
+        removed_block = blocks.pop(outlier_index)
 
 
-def find_uppercase_blocks_with_details(pdf_path):
-    exclude_words = ["Часть", "Part", "Частина", "h-", "h-ВИКЛИКІВ", "h", "h-ВЫЗОВОВ", "МЕТОДЫ ОБРАБОТКИ ИНФОРМАЦИИ"]
+
+
+def find_uppercase_blocks_with_details(pdf_path,):
+    exclude_words = ["Часть", "Part", "Частина", "h","-", "МЕТОДЫ ОБРАБОТКИ ИНФОРМАЦИИ"]
 
     uppercase_blocks_with_details = []
     pdf_document = fitz.open(pdf_path)
@@ -25,24 +35,21 @@ def find_uppercase_blocks_with_details(pdf_path):
             if alphanumeric_count < 3:
                 continue
 
-            bbox = block["bbox"]
-            if bbox[0] <= 150:
-                continue
 
-            cleaned_text = re.sub(r'\b(?:' + '|'.join(re.escape(word) for word in exclude_words) + r')\b', '',
+
+            cleaned_text = re.sub(r'(?:\b' + '|'.join(re.escape(word) for word in exclude_words) + r'\b|\s*-+\s*)', '',
                                   block_text).strip()
-
 
             if cleaned_text.isupper():
                 bbox = block["bbox"]
                 left_margin = bbox[0]
-
-                uppercase_blocks_with_details.append({
-                    "page_num": 1,
-                    "bbox": bbox,
-                    "left_margin": left_margin,
-                    "block_text": block_text
-                })
+                if 190 >= left_margin >= 160:
+                    uppercase_blocks_with_details.append({
+                        "page_num": 1,
+                        "bbox": bbox,
+                        "left_margin": left_margin,
+                        "block_text": block_text
+                    })
 
     if len(uppercase_blocks_with_details) >= 3:
         pdf_document.close()
@@ -66,18 +73,22 @@ def find_uppercase_blocks_with_details(pdf_path):
                 if alphanumeric_count < 3:
                     continue
 
-                cleaned_text = re.sub(r'\b(?:' + '|'.join(re.escape(word) for word in exclude_words) + r')\b', '',
-                                      block_text).strip()
+                cleaned_text = re.sub(r'(?:\b' + '|'.join(re.escape(word) for word in exclude_words) + r'\b|\s*-+\s*)',
+                                      '', block_text).strip()
 
                 if cleaned_text.isupper():
                     bbox = block["bbox"]
                     left_margin = bbox[0]
-                    uppercase_blocks_with_details.append({
-                        "page_num": page_num + 1,
-                        "bbox": bbox,
-                        "left_margin": left_margin,
-                        "block_text": block_text
-                    })
+                    if 190 >= left_margin >= 160:
+                        uppercase_blocks_with_details.append({
+                            "page_num": page_num + 1,
+                            "bbox": bbox,
+                            "left_margin": left_margin,
+                            "block_text": block_text
+                        })
+                        if len(uppercase_blocks_with_details) >= 3:
+                            find_and_remove_outlier_by_margin(uppercase_blocks_with_details)
+
 
         if len(uppercase_blocks_with_details) >= 3:
             break

@@ -1,4 +1,5 @@
 import json
+import os
 import re
 from logging import warning
 
@@ -117,9 +118,15 @@ def process_data(data, df=None, index=0, year=2006, magazine_number=1, pages="",
                 annotation = chunk[2]
                 title_language = langid.classify(title)
                 category = title_language[0]
-                if title_language[0] == 'ru' and any(row['Language'] == 'ru' for row in rows):
+                if title_language[0] == 'ru' and any(row['Language'] == 'ru' for row in rows) and not any(row['Language'] == 'uk' for row in rows):
                     category = 'uk'
                     title_language = ('uk', title_language[1])
+                elif title_language[0] == 'uk' and not any(row['Language'] == 'uk' for row in rows):
+                    category = 'uk'
+                    title_language = ('uk', title_language[1])
+                else:
+                    category = 'en'
+                    title_language = ('en', title_language[1])
 
                 rows.append({
                     'Parent_Key': index,
@@ -167,6 +174,7 @@ def main(ignore_ids: []):
             print(f"pdf_path -> {pdf_path}")
 
             print("################## FIRST 1 #####################")
+
             block = find_uppercase_blocks_with_details(pdf_path)
             df = pd.DataFrame(block)
             print_pretty_df(df)
@@ -197,6 +205,8 @@ def main(ignore_ids: []):
     # print("################## ALL DATA END FULL  #####################")
     # print_pretty_df(finish_result_df)
     # finish_result_df.to_json('result.json')
+    os.makedirs("result", exist_ok=True)
+
     finish_result_df.to_csv("result/finish_result_df.csv")
 
 
@@ -310,7 +320,7 @@ def create_txt_log(input_file="result/finish_result_df.csv", output_file="result
 
 
 if __name__ == '__main__':
-    # debug(id=107)
-    # ignore_ids = [76, 77, 107, 137]
-    # main(ignore_ids=ignore_ids)
+    # debug(id=137)
+    ignore_ids = [76, 77, 107, 137 ]
+    main(ignore_ids=ignore_ids)
     create_txt_log()

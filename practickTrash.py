@@ -12,38 +12,6 @@ langid.set_languages(['ru', 'uk', 'en'])
 exclude_words = ["Часть", "Part", "Частина"]
 
 
-# def find_uppercase_blocks_with_details(pdf_path):
-#     uppercase_blocks_with_details = []
-#
-#     pdf_document = fitz.open(pdf_path)
-#
-#     for page_num in range(pdf_document.page_count):
-#         page = pdf_document.load_page(page_num)
-#
-#         blocks = page.get_text("dict")["blocks"]
-#
-#         for block in blocks:
-#             if block["type"] == 0:
-#                 block_text = " ".join(
-#                     span["text"] for line in block["lines"] for span in line["spans"]
-#                 ).strip()
-#
-#                 if any(ignore_word in block_text for ignore_word in ["©", "УДК", "ISSN"]):
-#                     continue
-#
-#                 if block_text and block_text.isupper():
-#                     bbox = block["bbox"]
-#                     left_margin = bbox[0]
-#                     uppercase_blocks_with_details.append({
-#                         "page_num": page_num + 1,
-#                         "bbox": bbox,
-#                         "left_margin": left_margin,
-#                         "block_text": block_text
-#                     })
-#
-#     pdf_document.close()
-#     return uppercase_blocks_with_details
-
 def find_uppercase_blocks_with_details(pdf_path):
     uppercase_blocks_with_details = []
 
@@ -52,7 +20,6 @@ def find_uppercase_blocks_with_details(pdf_path):
     #     r"^[A-Z\s\*\+\-=\(\)\d]+$",  # Строки, состоящие из заглавных букв и математических символов
     #     r"^[A-Z0-9\s\+\-=\(\)\*\/]+$",  # Вариант, если формула состоит из букв и чисел
     # ]
-
 
     pdf_document = fitz.open(pdf_path)
 
@@ -116,8 +83,8 @@ def find_uppercase_blocks_with_details(pdf_path):
                 cleaned_text = re.sub(r'\b(?:' + '|'.join(re.escape(word) for word in exclude_words) + r')\b', '',
                                       block_text).strip()
 
-                if cleaned_text.isupper() :
-                        # and not any(re.search(pattern, block_text) for pattern in ignored_patterns)):
+                if cleaned_text.isupper():
+                    # and not any(re.search(pattern, block_text) for pattern in ignored_patterns)):
                     bbox = block["bbox"]
                     left_margin = bbox[0]
                     uppercase_blocks_with_details.append({
@@ -136,37 +103,53 @@ def find_uppercase_blocks_with_details(pdf_path):
 
 def print_pretty_df(df):
     print(tabulate(df, headers="keys", tablefmt="grid", showindex=False))
+
+
 def main():
-    articles_data = pd.read_json("articles_data.json")
-    pdf_urls_string = articles_data.iloc[4]
-    finish_result_df = pd.DataFrame(columns=['Parent_Key', 'UDC', 'Title', 'Language', 'Category', 'Authors', 'Annotation'])
+    article_df = pd.read_json("articles_data.json")
+    finish_result_df = pd.DataFrame(
+        columns=['Parent_Key', 'UDC', 'Title', 'Language', 'Category', 'Authors', 'Annotation'])
 
-    for index, pdf_path in enumerate(pdf_urls_string):
+    for id_key in article_df.columns:
+        pdf_path = article_df.loc['pdf_url', id_key]
+        print(f"ID: {id_key}, PDF Path: {pdf_path}")
         print("pdf_path" + pdf_path)
-        block = find_uppercase_blocks_with_details(pdf_path)
-        print("################## First 1 #####################")
-        df = pd.DataFrame(block)
-        print_pretty_df(df)
-        print("################## SECOND 2 #####################")
-        data = find_blocks_with_left_margin(pdf_path, target_left_margin=df['left_margin'].drop_duplicates().iloc[0]
-                                              , page_numbers=df['page_num'].drop_duplicates().tolist())
-        print_pretty_df(data)
-        print("################## ENd pdf  #####################")
-        finish_result_df = process_data(data, finish_result_df, index)
-        print_pretty_df(finish_result_df)
 
-    print("################## ALL DATA END FULL  #####################")
-    print_pretty_df(finish_result_df)
+        print("################## FIRST 1 #####################")
+        block = find_uppercase_blocks_with_details(pdf_path)
+        df = pd.DataFrame(block)
+        # print_pretty_df(df)
+
+        print("################## SECOND 2 #####################")
+        target_left_margin = df['left_margin'].mode()[0]
+        page_numbers = df['page_num'].unique().tolist()
+
+        data = find_blocks_with_left_margin(
+            pdf_path,
+            target_left_margin=target_left_margin,
+            page_numbers=page_numbers
+        )
+        # print(data)
+        # print_pretty_df(data)
+        # print("################## ENd pdf  #####################")
+        finish_result_df = process_data(data, finish_result_df, id_key)
+        # print_pretty_df(finish_result_df)
+
+    # print("################## ALL DATA END FULL  #####################")
+    # print_pretty_df(finish_result_df)
+    # finish_result_df.to_json('result.json')
+    finish_result_df.to_csv("finish_result_df.csv")
+
 
 def find_blocks_with_left_margin(pdf_path, target_left_margin, page_numbers):
-
     pdf_document = fitz.open(pdf_path)
     results = {}
+    author_len = 0
+    page_numbers.sort()
 
     for page_number in page_numbers:
 
-        page = pdf_document.load_page(page_number - 1 )
-
+        page = pdf_document.load_page(page_number - 1)
         blocks = page.get_text("dict")["blocks"]
         found_blocks = []
 
@@ -180,18 +163,44 @@ def find_blocks_with_left_margin(pdf_path, target_left_margin, page_numbers):
                         " ".join(span["text"] for span in line["spans"])
                         for line in block["lines"]
                     ).strip()
-
                     found_blocks.append((block_text))
+                    if len(found_blocks) == 2:
+                        print(found_blocks)
+                        author_len = len(found_blocks[1])
+                        print(author_len)
 
         if found_blocks:
             results[page_number] = found_blocks
 
     if len(results.keys()) > 2:
-        results.update({"_".join(map(str, sorted(results.keys())[-2:])): sum([results.pop(k) for k in sorted(results.keys())[-2:]], [])})
+        results.update({"_".join(map(str, sorted(results.keys())[-2:])): sum(
+            [results.pop(k) for k in sorted(results.keys())[-2:]], [])})
+    # print(len(results[list(results.keys())[1]]))
+    if len(results[list(results.keys())[1]]) > 6:
+        index = 3
+        temp = results[list(results.keys())[1]]
+        while index < len(temp):
+            # print(len(temp[index]))
+            # print(len(temp[index]) == author_len)
+            if len(temp[index]) == author_len:
+                part1 = temp[:index]
+                part2 = temp[index:]
+
+                combined = ''.join(map(str, part1[2:]))
+                combined2 = ''.join(map(str, part2[2:]))
+                result1 = part1[:2] + [combined] if combined else part1
+                result2 = part2[:2] + [combined] if combined2 else part2
+
+                new_result = result1 + result2
+                results[list(results.keys())[1]] = new_result
+                break
+            else:
+                index = index + 1
+        else:
+            print("error ")
 
     pdf_document.close()
     return results
-
 
 
 def process_data(data, df=None, index=0):
@@ -206,8 +215,6 @@ def process_data(data, df=None, index=0):
             authors = items[1]
             title_language = langid.classify(items[2])
             category = title_language[0]
-
-
 
             rows.append({
                 'Parent_Key': index,
@@ -259,6 +266,7 @@ def debug():
     print("#############################################")
     data = find_blocks_with_left_margin(pdf_path, target_left_margin=df['left_margin'].drop_duplicates().iloc[0]
                                         , page_numbers=df['page_num'].drop_duplicates().tolist())
+
     print_pretty_df(data)
     print("################## SECOND 2 #####################")
     finish_result_df = process_data(data, finish_result_df, 1)
@@ -273,8 +281,71 @@ if __name__ == '__main__':
     # download_pdfs_from_urls()
 
     # main()
+    result = []
+    df = pd.read_csv('finish_result_df.csv')
+    grouped = df.groupby('Parent_Key')
+    for parent_key, group in grouped:
+        entry = {
+            "UDC": group['UDC'].iloc[0] if 'UDC' in group.columns else None,
+            "key": parent_key,
+            "ru": {
+                "title": group[group['Language'] == 'ru']['Title'].iloc[0] if not group[
+                    group['Language'] == 'ru'].empty else None,
+                "author": group[group['Language'] == 'ru']['Annotation'].iloc[0] if not group[
+                    group['Language'] == 'ru'].empty else None,
+            },
+            "ua": {
+                "title": group[group['Language'] == 'ukr']['Title'].iloc[0] if not group[
+                    group['Language'] == 'ukr'].empty else None,
+                "author": group[group['Language'] == 'ukr']['Authors'].iloc[0] if not group[
+                    group['Language'] == 'ukr'].empty else None,
+                "annotation": group[group['Language'] == 'ukr']['Annotation'].iloc[0] if not group[
+                    group['Language'] == 'ukr'].empty else None,
+            },
+            "en": {
+                "title": group[group['Language'] == 'en']['Title'].iloc[0] if not group[
+                    group['Language'] == 'en'].empty else None,
+                "author": group[group['Language'] == 'en']['Authors'].iloc[0] if not group[
+                    group['Language'] == 'en'].empty else None,
+                "annotation": group[group['Language'] == 'en']['Annotation'].iloc[0] if not group[
+                    group['Language'] == 'en'].empty else None,
+            },
+        }
+        result.append(entry)
 
-    debug()
+    with open("logs.txt", 'w', encoding="utf-8") as log_file:
+        for item in result:
+            print(item)
+            index = item['key']
 
+            author_ua = item["ua"]["author"]
+            author_en = item["en"]["author"]
+            author_ru = item["ru"]["author"]
 
+            title_ua = item['ua']['title']
+            title_ru = item['ru']['title']
+            title_en = item['en']['title']
 
+            annotation_ua = item['ua']['annotation']
+            annotation_en = item['en']['annotation']
+
+            udc = item['udc']
+
+            content = (f"###############################\n"
+                       f"########## ARTICLE {index} ##########\n"
+                       f"###############################\n"
+                       f"{index}) {author_en}\n"  # authors
+                       f"{author_ua}\n"
+                       f"{author_ru}\n"
+                       f"\n"
+                       f"{title_ua}\n"  # titles 
+                       f"{title_en}\n"
+                       f"{title_ru}\n"
+                       f"\n"
+                       f"{udc}\n"  # UDC
+                       f"\n"
+                       f"{annotation_ua}\n"  # annotation 
+                       f"{annotation_en}\n"
+                       f"\n"
+                       )
+            log_file.writelines(content)

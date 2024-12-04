@@ -9,6 +9,8 @@ from tabulate import tabulate
 
 langid.set_languages(['ru', 'uk', 'en'])
 
+exclude_words = ["Часть", "Part", "Частина"]
+
 
 # def find_uppercase_blocks_with_details(pdf_path):
 #     uppercase_blocks_with_details = []
@@ -73,7 +75,10 @@ def find_uppercase_blocks_with_details(pdf_path):
             if alphanumeric_count < 3:
                 continue
 
-            if block_text and block_text.isupper():
+            cleaned_text = re.sub(r'\b(?:' + '|'.join(re.escape(word) for word in exclude_words) + r')\b', '',
+                                  block_text).strip()
+
+            if cleaned_text.isupper():
                 bbox = block["bbox"]
                 left_margin = bbox[0]
                 uppercase_blocks_with_details.append({
@@ -108,7 +113,10 @@ def find_uppercase_blocks_with_details(pdf_path):
                 if alphanumeric_count < 3:
                     continue
 
-                if block_text and block_text.isupper() :
+                cleaned_text = re.sub(r'\b(?:' + '|'.join(re.escape(word) for word in exclude_words) + r')\b', '',
+                                      block_text).strip()
+
+                if cleaned_text.isupper() :
                         # and not any(re.search(pattern, block_text) for pattern in ignored_patterns)):
                     bbox = block["bbox"]
                     left_margin = bbox[0]
@@ -136,16 +144,18 @@ def main():
     for index, pdf_path in enumerate(pdf_urls_string):
         print("pdf_path" + pdf_path)
         block = find_uppercase_blocks_with_details(pdf_path)
-
+        print("################## First 1 #####################")
         df = pd.DataFrame(block)
-
-        unique_pages = df['page_num'].drop_duplicates().tolist()
-        # print(unique_pages)
+        print_pretty_df(df)
+        print("################## SECOND 2 #####################")
         data = find_blocks_with_left_margin(pdf_path, target_left_margin=df['left_margin'].drop_duplicates().iloc[0]
                                               , page_numbers=df['page_num'].drop_duplicates().tolist())
-        print(data)
+        print_pretty_df(data)
+        print("################## ENd pdf  #####################")
         finish_result_df = process_data(data, finish_result_df, index)
+        print_pretty_df(finish_result_df)
 
+    print("################## ALL DATA END FULL  #####################")
     print_pretty_df(finish_result_df)
 
 def find_blocks_with_left_margin(pdf_path, target_left_margin, page_numbers):
@@ -175,6 +185,9 @@ def find_blocks_with_left_margin(pdf_path, target_left_margin, page_numbers):
 
         if found_blocks:
             results[page_number] = found_blocks
+
+    if len(results.keys()) > 2:
+        results.update({"_".join(map(str, sorted(results.keys())[-2:])): sum([results.pop(k) for k in sorted(results.keys())[-2:]], [])})
 
     pdf_document.close()
     return results
@@ -233,21 +246,13 @@ def process_data(data, df=None, index=0):
 
     return df
 
-if __name__ == '__main__':
-    # url = "https://jais.net.ua/index.php/files/archive"
-    # years_to_find = [2006, 2007]
-    # process_table(url, years_to_find)
-    # download_pdfs_from_urls()
 
-    # main()
+def debug():
+    finish_result_df = pd.DataFrame(
+        columns=['Parent_Key', 'UDC', 'Title', 'Language', 'Category', 'Authors', 'Annotation'])
 
-    finish_result_df = pd.DataFrame(columns=['Parent_Key', 'UDC', 'Title', 'Language', 'Category', 'Authors', 'Annotation'])
-
-
-    pdf_path = r"2006\1\5.pdf"
-
+    pdf_path = r"2006\1\18.pdf"
     block = find_uppercase_blocks_with_details(pdf_path)
-
     df = pd.DataFrame(block)
     print(df)
     print_pretty_df(df)
@@ -259,6 +264,17 @@ if __name__ == '__main__':
     finish_result_df = process_data(data, finish_result_df, 1)
     print_pretty_df(finish_result_df)
     print("################## END #####################")
+
+
+if __name__ == '__main__':
+    # url = "https://jais.net.ua/index.php/files/archive"
+    # years_to_find = [2006, 2007]
+    # process_table(url, years_to_find)
+    # download_pdfs_from_urls()
+
+    # main()
+
+    debug()
 
 
 

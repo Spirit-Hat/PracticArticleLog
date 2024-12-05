@@ -174,8 +174,11 @@ def main(ignore_ids: []):
             print(f"pdf_path -> {pdf_path}")
 
             print("################## FIRST 1 #####################")
-
-            block = find_uppercase_blocks_with_details(pdf_path)
+            if id_key == 137:
+                print(137)
+                block = find_uppercase_blocks_with_details(pdf_path, const_alphanumeric=2)
+            else:
+                block = find_uppercase_blocks_with_details(pdf_path)
             df = pd.DataFrame(block)
             print_pretty_df(df)
 
@@ -321,6 +324,6 @@ def create_txt_log(input_file="result/finish_result_df.csv", output_file="result
 
 if __name__ == '__main__':
     # debug(id=137)
-    ignore_ids = [76, 77, 107, 137 ]
+    ignore_ids = [76, 77, 107 ]
     main(ignore_ids=ignore_ids)
     create_txt_log()

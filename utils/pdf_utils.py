@@ -12,7 +12,7 @@ def find_and_remove_outlier_by_margin(blocks, tolerance=0.5):
 
 
 
-def find_uppercase_blocks_with_details(pdf_path,):
+def find_uppercase_blocks_with_details(pdf_path,const_alphanumeric = 3):
     exclude_words = ["Часть", "Part", "Частина", "h","-", "МЕТОДЫ ОБРАБОТКИ ИНФОРМАЦИИ"]
 
     uppercase_blocks_with_details = []
@@ -32,7 +32,7 @@ def find_uppercase_blocks_with_details(pdf_path,):
 
             alphanumeric_count = len([word for word in block_text.split() if word.isalnum() and len(word) > 1])
 
-            if alphanumeric_count < 3:
+            if alphanumeric_count < const_alphanumeric:
                 continue
 
 
@@ -70,7 +70,7 @@ def find_uppercase_blocks_with_details(pdf_path,):
 
                 alphanumeric_count = len([word for word in block_text.split() if word.isalnum() and len(word) > 1])
 
-                if alphanumeric_count < 3:
+                if alphanumeric_count < const_alphanumeric:
                     continue
 
                 cleaned_text = re.sub(r'(?:\b' + '|'.join(re.escape(word) for word in exclude_words) + r'\b|\s*-+\s*)',

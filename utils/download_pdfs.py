@@ -4,6 +4,29 @@ import os
 from utils.util import get_full_page_content, extract_article_data, header_for_download_pdf, save_to_json
 
 
+def generatormisthtml(data, year, magazine):
+    file = "result/zmist/"
+
+    os.makedirs(file, exist_ok=True)
+
+    name_generator = f"ЗМІСТ журнал {year} №{magazine if magazine != 1 and year != 2006 else '1-2'}.txt"
+    file = file + name_generator
+    html_content = "<h3>ЗМІСТ</h3>\n \n"
+    for section, papers in data.items():
+        html_content += f"<b>{section.upper()}</b>\n<ul>\n \n"
+        for paper_id, paper_info in papers.items():
+            authors = paper_info['authors']
+            title = paper_info['title']
+            html_content += (
+                f"<b>{authors}</b><br />\n"
+                f"<a href=\"/dspace/handle/123456789/XXXXXX\">{title}</a><br /><br />\n"
+                f"\n"
+            )
+        html_content += "</ul>\n"
+    with open(file, "w", encoding="utf-8") as file:
+        file.write(html_content)
+
+
 def download_pdfs() -> None:
     """
     Processes the all_years_data.json file, creates folders for each year and URL,
@@ -26,7 +49,9 @@ def download_pdfs() -> None:
         year_folder = f"./{year}"
         os.makedirs(year_folder, exist_ok=True)
 
-        for parent_url_counter, url in enumerate(urls, start=parent_url_counter):
+        for parent_url_counter, url in enumerate(urls, start=1):
+            if int(parent_url_counter) == 2 and int(year) == 2006:
+                parent_url_counter += 1
             url_folder = os.path.join(year_folder, str(parent_url_counter))
             os.makedirs(url_folder, exist_ok=True)
 
@@ -36,32 +61,48 @@ def download_pdfs() -> None:
                 print(f"Failed to fetch or parse the page for URL: {url}")
                 continue
 
-            articles = body.find_all("article", class_="article_summary")
-            article_title = body.find("h4", class_="section_title").get_text(strip=True)
-            article_id += 1
+            sections = body.find_all("section", class_="section")
 
-            for article_id, article in enumerate(articles, start=article_id):
-                article_data = extract_article_data(article, article_title)
-                if article_data["link"]:
-                    # articles_data[article_data["link"]] = article_data
-                    articles_data[article_id] = article_data
-                    url = article_data['link']
-                    download_link = get_full_page_content(url).find("a", class_="btn-primary")["href"]
-                    pdf_filename = os.path.join(url_folder, f"{article_id}.pdf")
-                    try:
-                        print(f"Downloading PDF #{article_id} from {download_link}...")
+            # articles = body.find_all("article", class_="article_summary")
+            # article_title = body.find("h4", class_="section_title").get_text(strip=True)
 
-                        response = requests.get(download_link, headers=header_for_download_pdf(url), stream=True)
-                        response.raise_for_status()
+            magazine = {}
+            for section in sections:
+                articles = section.find_all("article", class_="article_summary")
+                section_title = section.find("h4", class_="section_title").get_text(strip=True)
+                # magazine[section_title] = section_title
+                temp = 0
+                magazine[section_title] = {}
+                article_id += 1
+                for article_id, article in enumerate(articles, start=article_id):
+                    temp += 1
+                    article_data = extract_article_data(article, section_title)
+                    print(article_data["title"])
+                    print(article_data["authors"])
+                    magazine[section_title][temp] = {"title": article_data["title"], "authors": article_data["authors"]}
+                    if article_data["link"]:
+                        # articles_data[article_data["link"]] = article_data
+                        articles_data[article_id] = article_data
+                        url = article_data['link']
+                        download_link = get_full_page_content(url).find("a", class_="btn-primary")["href"]
+                        pdf_filename = os.path.join(url_folder, f"{article_id}.pdf")
+                        try:
+                            print(f"Downloading PDF #{article_id} from {download_link}...")
 
-                        with open(pdf_filename, "wb") as pdf_file:
-                            for chunk in response.iter_content(chunk_size=8192):
-                                pdf_file.write(chunk)
+                            response = requests.get(download_link, headers=header_for_download_pdf(url), stream=True)
+                            response.raise_for_status()
 
-                        print(f"Successfully downloaded: {pdf_filename}")
+                            with open(pdf_filename, "wb") as pdf_file:
+                                for chunk in response.iter_content(chunk_size=8192):
+                                    pdf_file.write(chunk)
 
-                        articles_data[article_id]['pdf_url'] = os.path.normpath(pdf_filename)
+                            print(f"Successfully downloaded: {pdf_filename}")
 
-                    except requests.exceptions.RequestException as e:
-                        print(f"Failed to download PDF from {download_link}. Error: {e}")
+                            articles_data[article_id]['pdf_url'] = os.path.normpath(pdf_filename)
+
+                        except requests.exceptions.RequestException as e:
+                            print(f"Failed to download PDF from {download_link}. Error: {e}")
+            print(magazine)
+            generatormisthtml(data=magazine,year=year,magazine=parent_url_counter)
+
     save_to_json(articles_data)

@@ -9,7 +9,7 @@ def generatormisthtml(data, year, magazine):
 
     os.makedirs(file, exist_ok=True)
 
-    name_generator = f"ЗМІСТ журнал {year} №{magazine if magazine != 1 and year == 2006 else '1-2'}.txt"
+    name_generator = f"ЗМІСТ журнал {year} №{'1-2' if int(magazine) == 1 and int(year) == 2006 else magazine}.txt"
     file = file + name_generator
     html_content = "<h3>ЗМІСТ</h3>\n \n"
     for section, papers in data.items():

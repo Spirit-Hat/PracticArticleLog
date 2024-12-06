@@ -348,6 +348,6 @@ def Finish_file(group, log_file, parent_key, article=False):
 
 if __name__ == '__main__':
     # debug(id=137)
-    # ignore_ids = [76, 77, 107 ]
-    # main(ignore_ids=ignore_ids)
+    ignore_ids = [76, 77, 107 ]
+    main(ignore_ids=ignore_ids)
     create_txt_log()

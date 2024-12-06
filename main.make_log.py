@@ -1,6 +1,7 @@
 import json
 import os
 import re
+import shutil
 from logging import warning
 
 import pandas as pd
@@ -118,7 +119,8 @@ def process_data(data, df=None, index=0, year=2006, magazine_number=1, pages="",
                 annotation = chunk[2]
                 title_language = langid.classify(title)
                 category = title_language[0]
-                if title_language[0] == 'ru' and any(row['Language'] == 'ru' for row in rows) and not any(row['Language'] == 'uk' for row in rows):
+                if title_language[0] == 'ru' and any(row['Language'] == 'ru' for row in rows) and not any(
+                        row['Language'] == 'uk' for row in rows):
                     category = 'uk'
                     title_language = ('uk', title_language[1])
                 elif title_language[0] == 'uk' and not any(row['Language'] == 'uk' for row in rows):
@@ -249,81 +251,103 @@ def create_txt_log(input_file="result/finish_result_df.csv", output_file="result
     grouped = df.groupby('Parent_Key')
     with open(output_file, 'w', encoding="utf-8") as log_file:
         for parent_key, group in grouped:
-            udc = group['UDC'].iloc[0] if 'UDC' in group.columns else None
-            udc = udc[4:]
+            Finish_file(group, log_file, parent_key,article=True)
 
-            article_title = group['article_title'].iloc[0] if 'article_title' in group.columns else None
-            magazine_number = group['magazine_number'].iloc[0] if 'magazine_number' in group.columns else None
-            used_literature = group['used_literature'].iloc[0] if 'used_literature' in group.columns else None
-            year = group['year'].iloc[0] if 'year' in group.columns else None
-            pages = group['pages'].iloc[0] if 'pages' in group.columns else None
+    file = "result/finish/"
 
-            key = parent_key
+    if os.path.exists(file):
+        if os.listdir(file):
+            shutil.rmtree(file)
 
-            title_en = group[group['Language'] == 'en']['Title'].iloc[0] if not group[
-                group['Language'] == 'en'].empty else None
+    for parent_key, group in grouped:
+        file = "result/finish/"
+        os.makedirs(file, exist_ok=True)
 
-            title_ua = group[group['Language'] == 'uk']['Title'].iloc[0] if not group[
-                group['Language'] == 'uk'].empty else None
+        year = group['year'].iloc[0] if 'year' in group.columns else None
+        magazine = group['magazine_number'].iloc[0] if 'magazine_number' in group.columns else None
+        name_generator = f"журнал {year} №{'1-2' if magazine == 1 and year == 2006 else magazine}.txt"
+        file = file + name_generator
 
-            title_ru = group[group['Language'] == 'ru']['Title'].iloc[0] if not group[
-                group['Language'] == 'ru'].empty else None
+        with open(file, 'a', encoding="utf-8") as log_file:
+            Finish_file(group, log_file, parent_key)
 
-            title_en = format_and_clean_text(title_en)
-            title_ua = format_and_clean_text(title_ua)
-            title_ru = format_and_clean_text(title_ru)
 
-            author_ua = group[group['Language'] == 'uk']['Authors'].iloc[0] if not group[
-                group['Language'] == 'uk'].empty else None
+def Finish_file(group, log_file, parent_key, article=False):
+    udc = group['UDC'].iloc[0] if 'UDC' in group.columns else None
+    udc = udc[4:]
+    article_title = group['article_title'].iloc[0] if 'article_title' in group.columns else None
+    magazine_number = group['magazine_number'].iloc[0] if 'magazine_number' in group.columns else None
+    used_literature = group['used_literature'].iloc[0] if 'used_literature' in group.columns else None
+    year = group['year'].iloc[0] if 'year' in group.columns else None
+    pages = group['pages'].iloc[0] if 'pages' in group.columns else None
+    key = parent_key
+    title_en = group[group['Language'] == 'en']['Title'].iloc[0] if not group[
+        group['Language'] == 'en'].empty else None
+    title_ua = group[group['Language'] == 'uk']['Title'].iloc[0] if not group[
+        group['Language'] == 'uk'].empty else None
+    title_ru = group[group['Language'] == 'ru']['Title'].iloc[0] if not group[
+        group['Language'] == 'ru'].empty else None
+    title_en = format_and_clean_text(title_en)
+    title_ua = format_and_clean_text(title_ua)
+    title_ru = format_and_clean_text(title_ru)
 
-            author_en = group[group['Language'] == 'en']['Authors'].iloc[0] if not group[
-                group['Language'] == 'en'].empty else None
+    author_ua = group[group['Language'] == 'uk']['Authors'].iloc[0] if not group[
+        group['Language'] == 'uk'].empty else None
+    author_en = group[group['Language'] == 'en']['Authors'].iloc[0] if not group[
+        group['Language'] == 'en'].empty else None
+    author_ru = group[group['Language'] == 'ru']['Authors'].iloc[0] if not group[
+        group['Language'] == 'ru'].empty else None
+    annotation_ua = group[group['Language'] == 'uk']['Annotation'].iloc[0] if not group[
+        group['Language'] == 'uk'].empty else None
+    annotation_en = group[group['Language'] == 'en']['Annotation'].iloc[0] if not group[
+        group['Language'] == 'en'].empty else None
+    author_ru_formated = format_and_clean_text(author_ru, format_text=False)
 
-            author_ru = group[group['Language'] == 'ru']['Authors'].iloc[0] if not group[
-                group['Language'] == 'ru'].empty else None
-
-            annotation_ua = group[group['Language'] == 'uk']['Annotation'].iloc[0] if not group[
-                group['Language'] == 'uk'].empty else None
-
-            annotation_en = group[group['Language'] == 'en']['Annotation'].iloc[0] if not group[
-                group['Language'] == 'en'].empty else None
-
-            author_ru_formated = format_and_clean_text(author_ru, format_text=False)
-
-            template_desc = (f"{title_ru} / {author_ru_formated} // Проблемы управления и информатики. — {year}."
-                             f" — № {magazine_number}. — С. {pages}. — Бібліогр.: {used_literature} назв. — рос.")
-
-            padding = "#" * 40
-            key_padding = "#" * len(str(key))
-            content = (f"{padding}############{key_padding}{padding}\n"
-                       f"{padding}# ARTICLE {key} #{padding}\n"
-                       f"{padding}############{key_padding}{padding}\n"
-                       f"\n"
-                       f"{key}) {author_en}\n"  # authors
-                       f"{author_ua}\n"
-                       f"{author_ru}\n"
-                       f"\n"
-                       f"{title_ua}\n"  # titles
-                       f"{title_ru}\n"
-                       f"{title_en}\n"
-                       f"\n"
-                       f"{template_desc}\n"
-                       f"\n"
-                       f"{article_title}\n"
-                       f"\n"
-                       f"{udc}\n"  # UDC
-                       f"\n"
-                       f"{annotation_ua}\n"  # annotation 
-                       f"\n"
-                       f"{annotation_en}\n"
-                       f"\n"
-                       )
-
-            log_file.writelines(content)
+    author_en = author_en.split(", ")[0].split(" ")[-1] if author_en else None
+    # print(f"{author_ru} автор айди {key} !!!")
+    if author_ru:
+        author_ru = ", ".join([
+            f"{parts[1]} {parts[0]}" if len(parts) > 1 else f"{block[3:].lstrip('.')} {block[:3]}"
+            for block in author_ru.split(", ")
+            for parts in [block.split()] if len(block.split()) > 1 or "." in block
+        ])
+    # template_desc = (f"{title_ru} / {author_ru_formated} // Проблемы управления и информатики. — {year}."
+    #                  f" — № {magazine_number}. — С. {pages}. — Бібліогр.: {used_literature} назв. — рос.")
+    template_desc = (f"{title_ru} / {author_ru_formated} // Проблемы управления и информатики. — {year}."
+                     f" — № {'1-2' if magazine_number == 1 and year == 2006 else magazine_number}. — С. {pages}. — Бібліогр.: {used_literature} назв. — рос.")
+    padding = "#" * 40
+    key_padding = "#" * len(str(key))
+    content = (f"{key}) {author_en}\n"  # authors
+               f"{author_ua}\n"
+               f"{author_ru}\n"
+               f"\n"
+               f"{title_ua}\n"  # titles
+               f"{title_ru}\n"
+               f"{title_en}\n"
+               f"\n"
+               f"{template_desc}\n"
+               f"\n"
+               f"{article_title}\n"
+               f"\n"
+               f"{udc}\n"  # UDC
+               f"\n"
+               f"{annotation_ua}\n"  # annotation
+               f"\n"
+               f"{annotation_en}\n"
+               f"\n"
+               )
+    if article:
+        article_block = (
+            f"{padding}############{key_padding}{padding}\n"
+            f"{padding}# ARTICLE {key} #{padding}\n"
+            f"{padding}############{key_padding}{padding}\n"
+        )
+        content = article_block + content
+    log_file.writelines(content)
 
 
 if __name__ == '__main__':
     # debug(id=137)
-    ignore_ids = [76, 77, 107 ]
-    main(ignore_ids=ignore_ids)
+    # ignore_ids = [76, 77, 107 ]
+    # main(ignore_ids=ignore_ids)
     create_txt_log()

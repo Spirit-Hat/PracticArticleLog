@@ -9,7 +9,7 @@ def generatormisthtml(data, year, magazine):
 
     os.makedirs(file, exist_ok=True)
 
-    name_generator = f"ЗМІСТ журнал {year} №{magazine if magazine != 1 and year != 2006 else '1-2'}.txt"
+    name_generator = f"ЗМІСТ журнал {year} №{magazine if magazine != 1 and year == 2006 else '1-2'}.txt"
     file = file + name_generator
     html_content = "<h3>ЗМІСТ</h3>\n \n"
     for section, papers in data.items():
@@ -77,8 +77,6 @@ def download_pdfs() -> None:
                 for article_id, article in enumerate(articles, start=article_id):
                     temp += 1
                     article_data = extract_article_data(article, section_title)
-                    print(article_data["title"])
-                    print(article_data["authors"])
                     magazine[section_title][temp] = {"title": article_data["title"], "authors": article_data["authors"]}
                     if article_data["link"]:
                         # articles_data[article_data["link"]] = article_data

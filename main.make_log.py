@@ -246,7 +246,7 @@ def debug(id):
     print("################## END #####################")
 
 
-def create_txt_log(input_file="result/finish_result_df.csv", output_file="result/logs.txt"):
+def create_txt_log(input_file="result/processed_finish_result_df_test_corrected_annotations.csv", output_file="result/logs.txt"):
     df = pd.read_csv(input_file)
     grouped = df.groupby('Parent_Key')
     with open(output_file, 'w', encoding="utf-8") as log_file:
@@ -287,9 +287,9 @@ def Finish_file(group, log_file, parent_key, article=False):
         group['Language'] == 'uk'].empty else None
     title_ru = group[group['Language'] == 'ru']['Title'].iloc[0] if not group[
         group['Language'] == 'ru'].empty else None
-    title_en = format_and_clean_text(title_en)
-    title_ua = format_and_clean_text(title_ua)
-    title_ru = format_and_clean_text(title_ru)
+    # title_en = format_and_clean_text(title_en)
+    # title_ua = format_and_clean_text(title_ua)
+    # title_ru = format_and_clean_text(title_ru)
 
     author_ua = group[group['Language'] == 'uk']['Authors'].iloc[0] if not group[
         group['Language'] == 'uk'].empty else None
@@ -304,31 +304,35 @@ def Finish_file(group, log_file, parent_key, article=False):
     author_ru_formated = format_and_clean_text(author_ru, format_text=False)
 
     author_en = author_en.split(", ")[0].split(" ")[-1] if author_en else None
+
     # print(f"{author_ru} автор айди {key} !!!")
-    if author_ru:
-        author_ru = ", ".join([
+    if author_ua:
+        author_ua = ", ".join([
             f"{parts[1]} {parts[0]}" if len(parts) > 1 else f"{block[3:].lstrip('.')} {block[:3]}"
-            for block in author_ru.split(", ")
+            for block in author_ua.split(", ")
             for parts in [block.split()] if len(block.split()) > 1 or "." in block
         ])
+
+
     # template_desc = (f"{title_ru} / {author_ru_formated} // Проблемы управления и информатики. — {year}."
     #                  f" — № {magazine_number}. — С. {pages}. — Бібліогр.: {used_literature} назв. — рос.")
     template_desc = (f"{title_ru} / {author_ru_formated} // Проблемы управления и информатики. — {year}."
                      f" — № {'1-2' if magazine_number == 1 and year == 2006 else magazine_number}. — С. {pages}. — Бібліогр.: {used_literature} назв. — рос.")
+
+    article_block = "\n" if magazine_number == 1 and year == 2006 else f"\n{article_title}\n\n"
+
     padding = "#" * 40
     key_padding = "#" * len(str(key))
     content = (f"{key}) {author_en}\n"  # authors
-               f"{author_ua}\n"
                f"{author_ru}\n"
+               f"{author_ua}\n"
                f"\n"
-               f"{title_ua}\n"  # titles
-               f"{title_ru}\n"
+               f"{title_ru}\n"  # titles
+               f"{title_ua}\n"
                f"{title_en}\n"
                f"\n"
                f"{template_desc}\n"
-               f"\n"
-               f"{article_title}\n"
-               f"\n"
+               f"{article_block}"
                f"{udc}\n"  # UDC
                f"\n"
                f"{annotation_ua}\n"  # annotation
@@ -348,6 +352,6 @@ def Finish_file(group, log_file, parent_key, article=False):
 
 if __name__ == '__main__':
     # debug(id=137)
-    ignore_ids = [76, 77, 107 ]
-    main(ignore_ids=ignore_ids)
+    # ignore_ids = [76, 77, 107 ]
+    # main(ignore_ids=ignore_ids)
     create_txt_log()

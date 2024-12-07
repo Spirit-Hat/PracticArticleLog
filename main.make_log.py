@@ -246,12 +246,13 @@ def debug(id):
     print("################## END #####################")
 
 
-def create_txt_log(input_file="result/processed_finish_result_df_test_corrected_annotations.csv", output_file="result/logs.txt"):
+def create_txt_log(input_file="result/processed_finish_result_df_test_corrected_annotations.csv",
+                   output_file="result/logs.txt"):
     df = pd.read_csv(input_file)
     grouped = df.groupby('Parent_Key')
     with open(output_file, 'w', encoding="utf-8") as log_file:
         for parent_key, group in grouped:
-            Finish_file(group, log_file, parent_key,article=True)
+            Finish_file(group, log_file, parent_key, article=True)
 
     file = "result/finish/"
 
@@ -270,6 +271,68 @@ def create_txt_log(input_file="result/processed_finish_result_df_test_corrected_
 
         with open(file, 'a', encoding="utf-8") as log_file:
             Finish_file(group, log_file, parent_key)
+    years = [2006, 2007]
+    magazines = [1, 2, 3, 4, 5, 6]
+    for year in years:
+        for magazine in magazines:
+            filtered_df = df[(df['year'] == year) & (df['magazine_number'] == magazine)]
+            if not filtered_df.empty:
+                print(filtered_df)
+                group_filtered_df = filtered_df.groupby('Parent_Key')
+                generatormisthtml(group_filtered_df, year, magazine)
+
+    # new_grouped = df.groupby(['year', 'magazine_number'])
+    #
+    # print(new_grouped)
+    #
+    # for parent_key, group in grouped:
+    #
+    #     generatormisthtml(group)
+
+
+def generatormisthtml(grouped, year, magazine):
+    path = "result/zmist_new_test/"
+    os.makedirs(path, exist_ok=True)
+
+    name_generator = f"ЗМІСТ журнал {year} №{'1-2' if int(magazine) == 1 and int(year) == 2006 else magazine}"
+
+    file = path + name_generator + ".txt"
+    file1 = path + name_generator + ".html"
+
+    html_content = "<h3>ЗМІСТ</h3>\n \n"
+    section_title = ""
+
+    for parent_key, group in grouped:
+        article_title = group['article_title'].iloc[0]
+        if section_title != article_title:
+            if section_title == "":
+                html_content += f"<b>{article_title}</b>\n<ul>\n \n"
+                section_title = article_title
+            else:
+                html_content += "</ul>\n"
+                html_content += f"<b>{article_title}</b>\n<ul>\n \n"
+                section_title = article_title
+
+        title = group[group['Language'] == 'ru']['Title'].iloc[0] if not group[
+            group['Language'] == 'ru'].empty else None
+        title = title.upper()
+        author_ru = group[group['Language'] == 'ru']['Authors'].iloc[0] if not group[
+               group['Language'] == 'ru'].empty else None
+        if author_ru:
+            author_ru = ", ".join([
+                f"{parts[1]} {parts[0]}" if len(parts) > 1 else f"{block[3:].lstrip('.')} {block[:3]}"
+                for block in author_ru.split(", ")
+                for parts in [block.split()] if len(block.split()) > 1 or "." in block
+            ])
+        html_content += (
+            f"<b>{author_ru}</b><br />\n"
+            f"<a href=\"/dspace/handle/123456789/XXXXXX\">{title}</a><br /><br />\n"
+            f"\n")
+    html_content += "</ul>\n"
+    with open(file, "w", encoding="utf-8") as f:
+        (f.write(html_content))
+    with open(file1, "w", encoding="utf-8") as f1:
+        (f1.write(html_content))
 
 
 def Finish_file(group, log_file, parent_key, article=False):
@@ -312,7 +375,6 @@ def Finish_file(group, log_file, parent_key, article=False):
             for block in author_ua.split(", ")
             for parts in [block.split()] if len(block.split()) > 1 or "." in block
         ])
-
 
     # template_desc = (f"{title_ru} / {author_ru_formated} // Проблемы управления и информатики. — {year}."
     #                  f" — № {magazine_number}. — С. {pages}. — Бібліогр.: {used_literature} назв. — рос.")

@@ -1,114 +1,1218 @@
 {
     "1": {
+        "article": "ARTICLES",
+        "title": "MATHEMATICS AND LIVING NATURE. THE WONDERFUL WORLD OF DNA",
+        "authors": "A.M. Gupal, A.A. Vagis",
+        "pages": "6-11",
+        "link": "https://jais.net.ua/index.php/files/article/view/388/462",
+        "pdf_url": "2006\\1\\1.pdf"
+    },
+    "2": {
+        "article": "ARTICLES",
+        "title": "THE ANOKHIN–PARETO PRINCIPLE AS A CRITERION OF THE REAL MOTION SELECTION IN LIVING NATURE",
+        "authors": "B.N. Kiforenko, S.I. Kiforenko",
+        "pages": "12-27",
+        "link": "https://jais.net.ua/index.php/files/article/view/389/463",
+        "pdf_url": "2006\\1\\2.pdf"
+    },
+    "3": {
+        "article": "ARTICLES",
+        "title": "THE METHODS AND ALGORITHMS OF MULTICRITERIA OPTIMIZATION ON THE BASIS OF UNSTRICT RANKINGS OF ALTERNATIVES ACCORDING TO PARTICULAR CRITERIONS AND EXPERIENCE OF COMPUTER REALIZATION",
+        "authors": "S.N. Vassilyev, Yu.V. Kotlov",
+        "pages": "28-38",
+        "link": "https://jais.net.ua/index.php/files/article/view/390/464",
+        "pdf_url": "2006\\1\\3.pdf"
+    },
+    "4": {
+        "article": "ARTICLES",
+        "title": "RISK INTEGRATED MODELLING FOR CONTROL IN COMPLEX ORGANIZATIONAL-TECHNICAL SYSTEMS",
+        "authors": "B.V. Sokolov, R.M. Yusupov",
+        "pages": "39-59",
+        "link": "https://jais.net.ua/index.php/files/article/view/391/465",
+        "pdf_url": "2006\\1\\4.pdf"
+    },
+    "5": {
+        "article": "ARTICLES",
+        "title": "MEASURABLE MULTIVALUED MAPPINGS AND THEIR SELECTIONS FOR DYNAMIC PURSUIT GAMES",
+        "authors": "А.А. Chikriy, І.S. Rappoport",
+        "pages": "60-70",
+        "link": "https://jais.net.ua/index.php/files/article/view/392/466",
+        "pdf_url": "2006\\1\\5.pdf"
+    },
+    "6": {
+        "article": "ARTICLES",
+        "title": "ON WEAK EXPANSIONS OF EXTREMAL PROBLEMS FOR NONLINEAR OPERATOR EQUATIONS. Part I. WEAK SOLUTIONS",
+        "authors": "V.S. Melnik, L. Toscano",
+        "pages": "71-80",
+        "link": "https://jais.net.ua/index.php/files/article/view/393/467",
+        "pdf_url": "2006\\1\\6.pdf"
+    },
+    "7": {
+        "article": "ARTICLES",
+        "title": "SOME REMARKS CONCERNING SUPREMUM ATTAINMENT BY CONVEX FUNCTIONAL",
+        "authors": "S.I. Lyashko, V.V. Semenov, M.V. Katsev",
+        "pages": "81-87",
+        "link": "https://jais.net.ua/index.php/files/article/view/394/468",
+        "pdf_url": "2006\\1\\7.pdf"
+    },
+    "8": {
+        "article": "ARTICLES",
+        "title": "SYNTHESIS OF ROBUST AND ADAPTIVE CONTROL SYSTEMS FOR NONSTATIONARY LINEAR OBJECTS UNDER BOUNDED DISTURBANCES",
+        "authors": "V.М. Kuntsevich, A.V. Kuntsevich",
+        "pages": "87-102",
+        "link": "https://jais.net.ua/index.php/files/article/view/395/469",
+        "pdf_url": "2006\\1\\8.pdf"
+    },
+    "9": {
+        "article": "ARTICLES",
+        "title": "ESTIMATION OF PARAMETERS FOR LINEAR MULTIDIMENSIONAL SYSTEMS  UNDER INTERVAL UNCERTAINTY",
+        "authors": "B.T. Polyak, S.A. Nazin",
+        "pages": "103-115",
+        "link": "https://jais.net.ua/index.php/files/article/view/396/470",
+        "pdf_url": "2006\\1\\9.pdf"
+    },
+    "10": {
+        "article": "ARTICLES",
+        "title": "COMPENSATION OF PERTURBATIONS OF LINEAR OPTIMAL SYSTEM ON THE BASIS OF PARAMETRIZATION OF LOURIE–RICCATI EQUATION",
+        "authors": "V.N. Bukov, N.I. Selvesyuk",
+        "pages": "116-125",
+        "link": "https://jais.net.ua/index.php/files/article/view/397/471",
+        "pdf_url": "2006\\1\\10.pdf"
+    },
+    "11": {
+        "article": "ARTICLES",
+        "title": "OPTIMAL CONTROL FOR A CONDITIONALLY CORRECT SYSTEM OF A THERMALLY STRESSED STATE FOR A COMPOSITE BODY",
+        "authors": "I.V. Sergienko, V.S. Deineka",
+        "pages": "126-152",
+        "link": "https://jais.net.ua/index.php/files/article/view/398/472",
+        "pdf_url": "2006\\1\\11.pdf"
+    },
+    "12": {
+        "article": "ARTICLES",
+        "title": "PROPERTIES OF OPTIMAL SETS OF PRACTICAL STABILITY OF DIFFERENTIAL INCLUSIONS. Part I. Part II",
+        "authors": "F.G. Garashchenko, V.V. Pichkur",
+        "pages": "153-170",
+        "link": "https://jais.net.ua/index.php/files/article/view/399/473",
+        "pdf_url": "2006\\1\\12.pdf"
+    },
+    "13": {
+        "article": "ARTICLES",
+        "title": "TO BUILDING OF INTEGRAL MODELS  OF DISTRIBUTED SPACE-TIME PROCESSES",
+        "authors": "V.V. Skopetskiy, V.A. Stoyan, V.B. Zvaridchuk",
+        "pages": "171-183",
+        "link": "https://jais.net.ua/index.php/files/article/view/400/474",
+        "pdf_url": "2006\\1\\13.pdf"
+    },
+    "14": {
+        "article": "ARTICLES",
+        "title": "THE GENERAL RELIABILITY  NETWORK DESIGN PROBLEMS",
+        "authors": "N.Z. Shor, F.A. Sharifov",
+        "pages": "184-202",
+        "link": "https://jais.net.ua/index.php/files/article/view/401/475",
+        "pdf_url": "2006\\1\\14.pdf"
+    },
+    "15": {
+        "article": "ARTICLES",
+        "title": "VISUAL FEEDBACK IN PROBLEMS  OF MOVING OBJECTS CONTROL",
+        "authors": "D.V. Lebedev",
+        "pages": "203-217",
+        "link": "https://jais.net.ua/index.php/files/article/view/402/476",
+        "pdf_url": "2006\\1\\15.pdf"
+    },
+    "16": {
+        "article": "ARTICLES",
+        "title": "ON STABILIZATION OF MOVEMENT OF SYSTEMS WITH NONHOLONOMIC CONSTRAINTS",
+        "authors": "V.B. Larin",
+        "pages": "218-230",
+        "link": "https://jais.net.ua/index.php/files/article/view/403/477",
+        "pdf_url": "2006\\1\\16.pdf"
+    },
+    "17": {
+        "article": "ARTICLES",
+        "title": "ON PECULIARITIES OF MULTIVARIABLE CONTINUONIS TIME SYSTEMS IDENTIFICATION FROM UNKNOWN BUT BOUNDED DATA",
+        "authors": "V.F. Gubarev, P.А. Tigunov",
+        "pages": "231-246",
+        "link": "https://jais.net.ua/index.php/files/article/view/404/478",
+        "pdf_url": "2006\\1\\17.pdf"
+    },
+    "18": {
+        "article": "ARTICLES",
+        "title": "ANALYSIS OF THE CYCLES PROCESSES OF SOLAR ACTIVITY",
+        "authors": "M.M. Lychak",
+        "pages": "247-258",
+        "link": "https://jais.net.ua/index.php/files/article/view/405/479",
+        "pdf_url": "2006\\1\\18.pdf"
+    },
+    "19": {
+        "article": "ARTICLES",
+        "title": "CRYOGENIC-OPTICAL SENSOR FOR HIGH-SENSITIVE GRAVITATIONAL MEASUREMENTS",
+        "authors": "V.V. Kozorez, R.A. Malitskiy, P.M. Pardalos, A.M. Negriyko, E.G. Udovitskaya, V.M. Khodakovskiy, Kh.M. Ismaili, O.K. Cheremnykh, V.A. Yatsenko, L.P. Yatsenko",
+        "pages": "271-284",
+        "link": "https://jais.net.ua/index.php/files/article/view/406/480",
+        "pdf_url": "2006\\1\\19.pdf"
+    },
+    "20": {
+        "article": "ARTICLES",
+        "title": "INFORMATION-TELECOMMUNICATIONS BROADBAND RADIO ACCESS SYSTEMS",
+        "authors": "M.E. Ilchenko, S.A. Kravchuk",
+        "pages": "285-293",
+        "link": "https://jais.net.ua/index.php/files/article/view/407/481",
+        "pdf_url": "2006\\1\\20.pdf"
+    },
+    "21": {
         "article": "PROBLEMS OF CONTROLLED SYSTEMS DYNAMICS",
         "title": "ON A STRUCTURE OF POSITIONAL  ABSORPTION SET IN THE GAME PROBLEM  OF DIRECTING ON A TARGET",
         "authors": "Yu.V. Averbukh",
         "pages": "5-9",
         "link": "https://jais.net.ua/index.php/files/article/view/374/448",
-        "pdf_url": "2006\\1\\1.pdf"
+        "pdf_url": "2006\\3\\21.pdf"
     },
-    "2": {
+    "22": {
         "article": "OPTIMIZATION  METHODS AND OPTIMAL CONTROL",
         "title": "ON HOMOGENIZATION OF OPTIMAL  CONTROL PROBLEMS. Part I. ANALYSIS  OF EXISTING APPROACHES",
         "authors": "P.I. Kogut, V.N. Mizernyi, T.N. Rudyanova",
         "pages": "10-26",
         "link": "https://jais.net.ua/index.php/files/article/view/375/449",
-        "pdf_url": "2006\\1\\2.pdf"
+        "pdf_url": "2006\\3\\22.pdf"
     },
-    "3": {
+    "23": {
         "article": "OPTIMIZATION  METHODS AND OPTIMAL CONTROL",
         "title": "SOLUTION METHOD OF NONLINEAR PROGRAMMING PROBLEMS WITH THE USE OF VARIATION DIMENSION BASIS",
         "authors": "Yu.D. Shcherbashin",
         "pages": "27-36",
         "link": "https://jais.net.ua/index.php/files/article/view/376/450",
-        "pdf_url": "2006\\1\\3.pdf"
+        "pdf_url": "2006\\3\\23.pdf"
     },
-    "4": {
+    "24": {
         "article": "OPTIMIZATION  METHODS AND OPTIMAL CONTROL",
         "title": "SOLVING OF SOME OPTIMIZATION PROBLEMS ON ARRANGEMENTS AND PERMUTATIONS OF GAME TYPE",
         "authors": "O.A. Yemets, N.Yu. Ustian",
         "pages": "37-47",
         "link": "https://jais.net.ua/index.php/files/article/view/377/451",
-        "pdf_url": "2006\\1\\4.pdf"
+        "pdf_url": "2006\\3\\24.pdf"
     },
-    "5": {
+    "25": {
         "article": "MATHEMATICAL SIMULATION AND STUDY OF COMPLEX CONTROLLED SYSTEMS",
         "title": "MATHEMATICAL MODELLING  OF PROCESSES OF FILTRATIONAL CONSOLIDATION WITH ALLOWANCE  OF RELAXATIONAL PHENOMENA",
         "authors": "V.M. Bulavatsky, V.V. Skopetsky",
         "pages": "48-56",
         "link": "https://jais.net.ua/index.php/files/article/view/378/452",
-        "pdf_url": "2006\\1\\5.pdf"
+        "pdf_url": "2006\\3\\25.pdf"
     },
-    "6": {
+    "26": {
         "article": "CONTROL OF PHYSICAL OBJECTS AND TECHNICAL SYSTEMS",
         "title": "ON MATHEMATICAL FOUNDATIONS OF COMPUTER SYSTEM OF TRAWLER OPTIMAL CONTROL FUNCTIONING. Part I",
         "authors": "V.І. Musurivskiy",
         "pages": "57-64",
         "link": "https://jais.net.ua/index.php/files/article/view/379/453",
-        "pdf_url": "2006\\1\\6.pdf"
+        "pdf_url": "2006\\3\\26.pdf"
     },
-    "7": {
+    "27": {
         "article": "INFORMATION PROCESSING AND PROTECTION METHODS",
         "title": "ON RANK REVERSAL OF ALTERNATIVE PROBLEM WHILE MULTICRITERIA ESTIMATING",
         "authors": "V.G. Totsenko",
         "pages": "65-74",
         "link": "https://jais.net.ua/index.php/files/article/view/380/454",
-        "pdf_url": "2006\\1\\7.pdf"
+        "pdf_url": "2006\\3\\27.pdf"
     },
-    "8": {
+    "28": {
         "article": "INFORMATION PROCESSING AND PROTECTION METHODS",
         "title": "ADAPTIVE FILTRATION WITH CONSTRAINTS  ON ESTIMATED PARAMETERS",
         "authors": "V.N. Podladchikov, N.A. Naroditskaya, E.V. Podladchikova",
         "pages": "75-88",
         "link": "https://jais.net.ua/index.php/files/article/view/381/455",
-        "pdf_url": "2006\\1\\8.pdf"
+        "pdf_url": "2006\\3\\28.pdf"
     },
-    "9": {
+    "29": {
         "article": "INFORMATION PROCESSING AND PROTECTION METHODS",
         "title": "COMPRESSION OF THE IMAGES ON THE BASIS OF COMPENSATION OF CONTOURS  AT WAVELET TRANSFORMATION",
         "authors": "V.G. Ivanov, M.G. Lubarskiy, Yu.V. Lomonosov",
         "pages": "89-101",
         "link": "https://jais.net.ua/index.php/files/article/view/382/456",
-        "pdf_url": "2006\\1\\9.pdf"
+        "pdf_url": "2006\\3\\29.pdf"
     },
-    "10": {
+    "30": {
         "article": "INFORMATION PROCESSING AND PROTECTION METHODS",
         "title": "SYNTHESIS OF INFORMATION PROTECTION SYSTEMS WITH A MINIMUM COST  OF PROTECTION MECHANISMS",
         "authors": "Yu.Yu. Bonya, A.N. Novikov",
         "pages": "147-156",
         "link": "https://jais.net.ua/index.php/files/article/view/387/461",
-        "pdf_url": "2006\\1\\10.pdf"
+        "pdf_url": "2006\\3\\30.pdf"
     },
-    "11": {
+    "31": {
         "article": "SPACE INFORMATION THECHNOLOGIES AND SYSTEMS",
         "title": "ON APPLYING OF THE TIME SERIES  ANALYSIS MEANS TO THE ESTIMATION  OF THE SOLAR STRUCTURES ROTATION  IN THE UPPER CHROMOSPHERE",
         "authors": "Ya.I. Zyelyk, N.N. Stepanian, O.A. Andryeyeva",
         "pages": "102-116",
         "link": "https://jais.net.ua/index.php/files/article/view/383/457",
-        "pdf_url": "2006\\1\\11.pdf"
+        "pdf_url": "2006\\3\\31.pdf"
     },
-    "12": {
+    "32": {
         "article": "SPACE INFORMATION THECHNOLOGIES AND SYSTEMS",
         "title": "EVALUATION OF OPTICAL TRANSFER FUNCTIONS AND DIGITAL AEROSPACE IMAGES RESTORATION BY INVERSE FILTERING",
         "authors": "S.A. Stankevich",
         "pages": "116-123",
         "link": "https://jais.net.ua/index.php/files/article/view/384/458",
-        "pdf_url": "2006\\1\\12.pdf"
+        "pdf_url": "2006\\3\\32.pdf"
     },
-    "13": {
+    "33": {
         "article": "TECHNICAL TOOLS FOR MEASUREMENTS AND CONTROL",
         "title": "ANALYSIS OF ELECTRONIC DEVICES  FREQUENCY RESPONSES USING SET METHOD",
         "authors": "V.P. Evtushok",
         "pages": "124-128",
         "link": "https://jais.net.ua/index.php/files/article/view/385/459",
-        "pdf_url": "2006\\1\\13.pdf"
+        "pdf_url": "2006\\3\\33.pdf"
     },
-    "14": {
+    "34": {
         "article": "ECONOMIC AND MANAGEMENT SYSTEMS",
         "title": "EKONOMIC MATHEMATICAL METHODS OF ANALYSIS AND MODELS OF OPTIMIZATION OF INFORMATION SYSTEMS BY QUALITY ATTRIBUTES",
         "authors": "M.V. Artyushenko, N.M. Artyushenko",
         "pages": "129-147",
         "link": "https://jais.net.ua/index.php/files/article/view/386/460",
-        "pdf_url": "2006\\1\\14.pdf"
+        "pdf_url": "2006\\3\\34.pdf"
+    },
+    "35": {
+        "article": "PROBLEMS OF CONTROLLED SYSTEMS DYNAMICS",
+        "title": "OPTIMAL CONTROL OF A THERMALLY STRESSED STATE FOR A BODY UNDER SPECIFIED STRESSES",
+        "authors": "I.V. Sergienko, V.S. Deineka",
+        "pages": "5-30",
+        "link": "https://jais.net.ua/index.php/files/article/view/360/435",
+        "pdf_url": "2006\\3\\35.pdf"
+    },
+    "36": {
+        "article": "PROBLEMS OF CONTROLLED SYSTEMS DYNAMICS",
+        "title": "ANALYSIS OF RIGID SYNTHESIS ALGORITHMS OF NONLINEAR STABILIZATION SYSTEMS",
+        "authors": "E.L. Klimenko, N.P. Kovalenko, S.M. Onishchenko, M.N. Susol",
+        "pages": "30-39",
+        "link": "https://jais.net.ua/index.php/files/article/view/362/436",
+        "pdf_url": "2006\\3\\36.pdf"
+    },
+    "37": {
+        "article": "PROBLEMS OF CONTROLLED SYSTEMS DYNAMICS",
+        "title": "CONSTRUCTION OF STABILITY DOMAIN  OF DISCRETE LINEAR SYSTEMS IN SPACE  OF TWO PARAMETERS NONLINEARLY INFLUENCING COEFFICIENTS  OF A SECULAR EQUATION",
+        "authors": "L.Т. Movchan, S.L. Movchan",
+        "pages": "40-49",
+        "link": "https://jais.net.ua/index.php/files/article/view/363/437",
+        "pdf_url": "2006\\3\\37.pdf"
+    },
+    "38": {
+        "article": "ADAPTIVE CONTROL AND METHODS OF IDENTIFICATION",
+        "title": "GUARANTEED RESULTS IN PROBLEMS OF PARAMETRIC IDENTIFICATION AND ESTIMATION OF VECTOR OF STATE (FILTRATION) FOR SLOWLY VARYING  BOUNDED NOISE OF MEASUREMENTS",
+        "authors": "V.M. Kuntsevich",
+        "pages": "50-57",
+        "link": "https://jais.net.ua/index.php/files/article/view/364/438",
+        "pdf_url": "2006\\3\\38.pdf"
+    },
+    "39": {
+        "article": "OPTIMIZATION  METHODS AND OPTIMAL CONTROL",
+        "title": "ON HOMOGENIZATION OF OPTIMAL CONTROL PROBLEMS. Part II. VARIATIONAL CONVERGENCE OF THE CONSTRAINED MINIMIZATION PROBLEMS",
+        "authors": "P.I. Kogut, V.N. Mizernyi, T.N. Rudyanova",
+        "pages": "58-72",
+        "link": "https://jais.net.ua/index.php/files/article/view/365/439",
+        "pdf_url": "2006\\3\\39.pdf"
+    },
+    "40": {
+        "article": "CONTROL OF PHYSICAL OBJECTS AND TECHNICAL SYSTEMS",
+        "title": "ON MATHEMATICAL FOUNDATIONS OF COMPUTER SYSTEM OF TRAWLER OPTIMAL CONTROL FUNCTIONING. Part II",
+        "authors": "V.I. Musurivskiy",
+        "pages": "72-81",
+        "link": "https://jais.net.ua/index.php/files/article/view/366/440",
+        "pdf_url": "2006\\3\\40.pdf"
+    },
+    "41": {
+        "article": "INFORMATION PROCESSING AND PROTECTION METHODS",
+        "title": "METHOD OF DETERMINATION OF SUFFICIENCY OF THE CONSISTENCY OF INDIVIDUAL RANKINGS WHILE MAKING GROUP DECISIONS",
+        "authors": "V.G. Totsenko",
+        "pages": "82-88",
+        "link": "https://jais.net.ua/index.php/files/article/view/367/441",
+        "pdf_url": "2006\\3\\41.pdf"
+    },
+    "42": {
+        "article": "INFORMATION PROCESSING AND PROTECTION METHODS",
+        "title": "THE COMPARATIVE ANALYSIS OF DIFFERENT ESTIMATIONS OF THE RECOGNITION PROBABILITY",
+        "authors": "B.E. Kapustiy, B.P. Rusyn, V.A. Tayanov",
+        "pages": "89-96",
+        "link": "https://jais.net.ua/index.php/files/article/view/368/442",
+        "pdf_url": "2006\\3\\42.pdf"
+    },
+    "43": {
+        "article": "INFORMATION PROCESSING AND PROTECTION METHODS",
+        "title": "INVESTIGATION OF CELLULAR WIRELESS NETWORKS CHARACTERISTICS WITH LIMITED QUEUE OF IMPATIENT HANDOVER CALLS",
+        "authors": "L.A. Ponomarenko, A.Z. Melikov, A.T. Babayev",
+        "pages": "97-107",
+        "link": "https://jais.net.ua/index.php/files/article/view/369/443",
+        "pdf_url": "2006\\3\\43.pdf"
+    },
+    "44": {
+        "article": "SPACE MONITORING",
+        "title": "THE FIRST VERSION OF BANK OF SYNCHRONOUS DATA FOR THE ANALYSIS OF THE INFLUENCE OF SOLAR ACTIVITY ON A POPULATION HEALTH",
+        "authors": "M.M. Lychak, N.A. Bobko, Ya.I. Zyelyk, N.P. Tsaruk, I.P. Bratasyuk",
+        "pages": "108-122",
+        "link": "https://jais.net.ua/index.php/files/article/view/370/444",
+        "pdf_url": "2006\\3\\44.pdf"
+    },
+    "45": {
+        "article": "ECONOMIC AND MANAGEMENT SYSTEMS",
+        "title": "RANDOM DYNAMICS OF STOCHASTICALLY PERTURBED EVOLUTION INCLUSION AND PROBLEM OF DISTRIBUTION OF POWER IN HIERARCHICAL STRUCTURE",
+        "authors": "G. Іоvane, A.V. Kapustyan",
+        "pages": "122-134",
+        "link": "https://jais.net.ua/index.php/files/article/view/371/445",
+        "pdf_url": "2006\\3\\45.pdf"
+    },
+    "46": {
+        "article": "ECONOMIC AND MANAGEMENT SYSTEMS",
+        "title": "COMPARISON OF METHODS OF THE POTENTIAL GROSS DOMESTIC PRODUCT IDENTIFICATION",
+        "authors": "A.V. Bakun",
+        "pages": "135-146",
+        "link": "https://jais.net.ua/index.php/files/article/view/372/446",
+        "pdf_url": "2006\\3\\46.pdf"
+    },
+    "47": {
+        "article": "ECONOMIC AND MANAGEMENT SYSTEMS",
+        "title": "PREDICTION THE COMPETITIVE STRENGTH INDEX OF BRAND PRODUCT WITH FUZZY KNOWLEDGE BASES",
+        "authors": "S.D. Shtovba, E.V. Shtovba",
+        "pages": "147-156",
+        "link": "https://jais.net.ua/index.php/files/article/view/373/447",
+        "pdf_url": "2006\\3\\47.pdf"
+    },
+    "48": {
+        "article": "PROBLEMS OF CONTROLLED SYSTEMS DYNAMICS",
+        "title": "ON GAME PROBLEM OF SEARCH FOR MOVING OBJECTS FOR А MODEL OF SEMI-MARKOVIAN TYPE",
+        "authors": "K.G. Dzyubenko, A.A. Chikriy",
+        "pages": "5-15",
+        "link": "https://jais.net.ua/index.php/files/article/view/251/330",
+        "pdf_url": "2006\\4\\48.pdf"
+    },
+    "49": {
+        "article": "METHODS OF IDENTIFICATION AND ADAPTIVE CONTROL",
+        "title": "METHOD OF ITERATIVE IDENTIFICATION OF MULTIVARIABLE SYSTEMS OVER INEXACT DATA. Part I. THEORETICAL ASPECTS",
+        "authors": "V.F. Gubarev",
+        "pages": "16-31",
+        "link": "https://jais.net.ua/index.php/files/article/view/252/331",
+        "pdf_url": "2006\\4\\49.pdf"
+    },
+    "50": {
+        "article": "METHODS OF IDENTIFICATION AND ADAPTIVE CONTROL",
+        "title": "THE ADAPTIVE SYNCHRONIZATION OF THE MULTIMEDIA TRAFFIC IN SITUATIONAL CONTROL CENTRES",
+        "authors": "M.M. Lastovchenko, V.I. Bilyak, V.I. Marushchak",
+        "pages": "32-41",
+        "link": "https://jais.net.ua/index.php/files/article/view/253/332",
+        "pdf_url": "2006\\4\\50.pdf"
+    },
+    "51": {
+        "article": "METHODS OF IDENTIFICATION AND ADAPTIVE CONTROL",
+        "title": "OBTAINING OF GUARANTEED POLYHEDRAL SET ESTIMATES OF CONTROLLED OBJECTS PARAMETERS IN THE PRESENCE OF OUTLIERS IN BOUNDED DISTURBANCES",
+        "authors": "V.N. Shevchenko",
+        "pages": "42-51",
+        "link": "https://jais.net.ua/index.php/files/article/view/254/333",
+        "pdf_url": "2006\\4\\51.pdf"
+    },
+    "52": {
+        "article": "OPTIMIZATION  METHODS AND OPTIMAL CONTROL",
+        "title": "NECESSARY CONDITIONS OF OPTIMALITY OF SINGULAR CONTROL IN ONE CONTROL PROBLEM OF MOISEEV TYPE",
+        "authors": "K.B. Mansimov, I.F. Nagiyeva",
+        "pages": "52-63",
+        "link": "https://jais.net.ua/index.php/files/article/view/255/334",
+        "pdf_url": "2006\\4\\52.pdf"
+    },
+    "53": {
+        "article": "OPTIMIZATION  METHODS AND OPTIMAL CONTROL",
+        "title": "A METHOD OF NESTED SCALAR CONVOLUTIONS IN MULTICRITERIA ESTIMATION AND OPTIMIZATION THEORY",
+        "authors": "A.N. Voronin",
+        "pages": "64-68",
+        "link": "https://jais.net.ua/index.php/files/article/view/256/335",
+        "pdf_url": "2006\\4\\53.pdf"
+    },
+    "54": {
+        "article": "CONTROL OF PHYSICAL OBJECTS AND TECHNICAL SYSTEMS",
+        "title": "ESTIMATION OF CONTROLLED MECHANICAL SYSTEM PARAMETERS IN REAL TIME",
+        "authors": "E.М. Potapenko, E.E. Potapenko, А.E. Kazurova",
+        "pages": "69-78",
+        "link": "https://jais.net.ua/index.php/files/article/view/257/336",
+        "pdf_url": "2006\\4\\54.pdf"
+    },
+    "55": {
+        "article": "CONTROL OF PHYSICAL OBJECTS AND TECHNICAL SYSTEMS",
+        "title": "STRATEGY OF CONTROL AND DECISION MAKING UNDER THE SIMULATION MODELING OF TECHNOLOGICAL PROCESSES OF DANGEROUS MANUFACTURE",
+        "authors": "V.S. Smorodin",
+        "pages": "79-91",
+        "link": "https://jais.net.ua/index.php/files/article/view/258/337",
+        "pdf_url": "2006\\4\\55.pdf"
+    },
+    "56": {
+        "article": "INFORMATION PROCESSING AND PROTECTION METHODS",
+        "title": "GROUP RANKINGS WITH FEEDBACK TO EXPERTS AND ACCOUNT OF THEIR COMPETENCE",
+        "authors": "V.G. Totsenko",
+        "pages": "92-99",
+        "link": "https://jais.net.ua/index.php/files/article/view/259/338",
+        "pdf_url": "2006\\4\\56.pdf"
+    },
+    "57": {
+        "article": "INFORMATION PROCESSING AND PROTECTION METHODS",
+        "title": "MULTIDIMENSIONAL-MATRIX APPROACH IN PARALLEL FACTORIAL ANALYSIS",
+        "authors": "V.S. Mukha",
+        "pages": "100-107",
+        "link": "https://jais.net.ua/index.php/files/article/view/260/339",
+        "pdf_url": "2006\\4\\57.pdf"
+    },
+    "58": {
+        "article": "INFORMATION PROCESSING AND PROTECTION METHODS",
+        "title": "DUAL TRANSFORMS OF WALSH SYMMETRIC SYSTEMS OF FUNCTIONS",
+        "authors": "А.Ya. Beletskiy",
+        "pages": "108-119",
+        "link": "https://jais.net.ua/index.php/files/article/view/261/340",
+        "pdf_url": "2006\\4\\58.pdf"
+    },
+    "59": {
+        "article": "INFORMATION PROCESSING AND PROTECTION METHODS",
+        "title": "THE SYNTHESIS OF A STRUCTURE OF THE CONTROL ALGORITHM OF A COMPUTER NETWORK «DYNAMIC USER — DYNAMIC NETWORK — DYNAMIC USER»",
+        "authors": "S.V. Pavlova",
+        "pages": "120-130",
+        "link": "https://jais.net.ua/index.php/files/article/view/262/341",
+        "pdf_url": "2006\\4\\59.pdf"
+    },
+    "60": {
+        "article": "INFORMATION PROCESSING AND PROTECTION METHODS",
+        "title": "METHOD FOR SYNTHESIS OF PERFECT TWO-DIMENSIONAL ARRAYS",
+        "authors": "B.I. Bedzhev, J.N. Tasheva, B.P. Stoyanov",
+        "pages": "131-137",
+        "link": "https://jais.net.ua/index.php/files/article/view/263/342",
+        "pdf_url": "2006\\4\\60.pdf"
+    },
+    "61": {
+        "article": "SPACE MONITORING",
+        "title": "MATHEMATICAL MODELING OF CIRCUMTERRESTRIAL SPACE POLLUTION",
+        "authors": "I.A. Pilkevich",
+        "pages": "138-147",
+        "link": "https://jais.net.ua/index.php/files/article/view/264/343",
+        "pdf_url": "2006\\4\\61.pdf"
+    },
+    "62": {
+        "article": "ECONOMIC AND MANAGEMENT SYSTEMS",
+        "title": "ON OPTIMIZATION OF PLANNING THE REFORMATION OF SOCIO-ECONOMIC STRUCTURES",
+        "authors": "I.P. Sinitsyn",
+        "pages": "148-155",
+        "link": "https://jais.net.ua/index.php/files/article/view/265/344",
+        "pdf_url": "2006\\4\\62.pdf"
+    },
+    "63": {
+        "article": "PROBLEMS OF CONTROLLED SYSTEMS DYNAMICS",
+        "title": "ALGORITHMS OF DETERMINATION OF BOTH STABILIZING AND ANTISTABILIZING SOLUTIONS OF THE DISCRETE ALGEBRAIC RICCATI EQUATION",
+        "authors": "V.B. Larin",
+        "pages": "5-16",
+        "link": "https://jais.net.ua/index.php/files/article/view/266/345",
+        "pdf_url": "2006\\5\\63.pdf"
+    },
+    "64": {
+        "article": "ADAPTIVE CONTROL AND METHODS OF IDENTIFICATION",
+        "title": "PARAMETERS IDENTIFICATION IN MINIMAX STATEMENT",
+        "authors": "Yu.L. Menshikov",
+        "pages": "17-24",
+        "link": "https://jais.net.ua/index.php/files/article/view/267/346",
+        "pdf_url": "2006\\5\\64.pdf"
+    },
+    "65": {
+        "article": "ADAPTIVE CONTROL AND METHODS OF IDENTIFICATION",
+        "title": "SYSTEM REGULARITY CRITERION OF GROUP METHOD OF DATA HANDLING",
+        "authors": "A.P. Sarychev",
+        "pages": "25-37",
+        "link": "https://jais.net.ua/index.php/files/article/view/268/347",
+        "pdf_url": "2006\\5\\65.pdf"
+    },
+    "66": {
+        "article": "ADAPTIVE CONTROL AND METHODS OF IDENTIFICATION",
+        "title": "FUZZY IDENTIFICATION BASED ON REGRESSION MODELS OF PARAMETRICAL MEMBERSHIP FUNCTION",
+        "authors": "S.D. Shtovba",
+        "pages": "38-44",
+        "link": "https://jais.net.ua/index.php/files/article/view/269/348",
+        "pdf_url": "2006\\5\\66.pdf"
+    },
+    "67": {
+        "article": "CONTROL OF PHYSICAL OBJECTS AND TECHNICAL SYSTEMS",
+        "title": "SYNTHESIS OF ROBUST COMBINED CONTROLLERS OF CURRENT CIRCUITS UNDER VECTOR CONTROL OF ALTERNATING-CURRENT MOTORS",
+        "authors": "E.M. Potapenko, E.E. Potapenko",
+        "pages": "45-54",
+        "link": "https://jais.net.ua/index.php/files/article/view/270/349",
+        "pdf_url": "2006\\5\\67.pdf"
+    },
+    "68": {
+        "article": "INFORMATION PROCESSING AND PROTECTION METHODS",
+        "title": "COMPLEXITY OF BAYESIAN PROCEDURE OF INDUCTIVE INFERENCE. DISCRETE CASE",
+        "authors": "B.A. Beletskiy, A.A. Vagis, S.V. Vasilyev, N.A. Gupal",
+        "pages": "55-70",
+        "link": "https://jais.net.ua/index.php/files/article/view/271/350",
+        "pdf_url": "2006\\5\\68.pdf"
+    },
+    "69": {
+        "article": "INFORMATION PROCESSING AND PROTECTION METHODS",
+        "title": "MODIFIED LEAST-SQUARE METHOD IN THE GENERALIZED- INVARIANT STATEMENT",
+        "authors": "Yu.G. Bulychev, A.V. Yeliseev",
+        "pages": "71-83",
+        "link": "https://jais.net.ua/index.php/files/article/view/272/351",
+        "pdf_url": "2006\\5\\69.pdf"
+    },
+    "70": {
+        "article": "INFORMATION PROCESSING AND PROTECTION METHODS",
+        "title": "ON THE ESTIMATION OF IMAGE RETRIEVAL EFFECTIVENESS USING 2D-COLOR HISTOGRAMS",
+        "authors": "E.A. Bashkov, N.S. Kostyukova",
+        "pages": "84-89",
+        "link": "https://jais.net.ua/index.php/files/article/view/273/352",
+        "pdf_url": "2006\\5\\70.pdf"
+    },
+    "71": {
+        "article": "INFORMATION PROCESSING AND PROTECTION METHODS",
+        "title": "STRATEGY OF SUBOPTIMAL SEARCHING OF SIGNALS DEPENDING ON STATE OF CHANNELS",
+        "authors": "L.N. Shlepakov, N.G. Vovkodav",
+        "pages": "90-99",
+        "link": "https://jais.net.ua/index.php/files/article/view/274/353",
+        "pdf_url": "2006\\5\\71.pdf"
+    },
+    "72": {
+        "article": "INFORMATION PROCESSING AND PROTECTION METHODS",
+        "title": "THE NEW APPROACH TO SELECTION OF VISUALLY SIMILAR COLORS OF IMAGES",
+        "authors": "O.L. Vovk",
+        "pages": "100-105",
+        "link": "https://jais.net.ua/index.php/files/article/view/275/354",
+        "pdf_url": "2006\\5\\72.pdf"
+    },
+    "73": {
+        "article": "SPACE INFORMATION THECHNOLOGIES AND SYSTEMS",
+        "title": "LAND-COVER CLASSIFICATION ON HYPERSPECTRAL AEROSPACE IMAGES BY SPECTRAL ENDMEMBERS UNMIXING",
+        "authors": "S.А. Stankevich, S.V. Shklyar",
+        "pages": "106-115",
+        "link": "https://jais.net.ua/index.php/files/article/view/276/355",
+        "pdf_url": "2006\\5\\73.pdf"
+    },
+    "74": {
+        "article": "ECONOMIC AND MANAGEMENT SYSTEMS",
+        "title": "DYNAMIC MODEL OF INTERSECTOR BALANCE WITH LAGS",
+        "authors": "М.В. Boychuk, N.M. Shmurygina",
+        "pages": "116-127",
+        "link": "https://jais.net.ua/index.php/files/article/view/277/356",
+        "pdf_url": "2006\\5\\74.pdf"
+    },
+    "75": {
+        "article": "ECONOMIC AND MANAGEMENT SYSTEMS",
+        "title": "APPLICATION OF SELF-ORGANIZING MAPS FOR FRAUD DETECTION IN PAYMENT SYSTEM",
+        "authors": "V.A. Zaslavskiy, A.A. Strizhak",
+        "pages": "128-141",
+        "link": "https://jais.net.ua/index.php/files/article/view/278/357",
+        "pdf_url": "2006\\5\\75.pdf"
+    },
+    "76": {
+        "article": "CHRONICLE",
+        "title": "SIXTH UKRAINIAN CONFERENCE ON SPACE RESEARCHES",
+        "authors": "Vsevolod M. Kuntsevich, Nikolay N. Salnikov",
+        "pages": "142-145",
+        "link": "https://jais.net.ua/index.php/files/article/view/281/358",
+        "pdf_url": "2006\\5\\76.pdf"
+    },
+    "77": {
+        "article": "CHRONICLE",
+        "title": "THIRTEEN INTERNATIONAL CONFERENCE ON AUTOMATIC CONTROL \"AVTOMATIKA-2006\"",
+        "authors": "Vladimir M. Dubovoi, Dmitriy V. Lebedev",
+        "pages": "145-146",
+        "link": "https://jais.net.ua/index.php/files/article/view/282/359",
+        "pdf_url": "2006\\5\\77.pdf"
+    },
+    "78": {
+        "article": "PROBLEMS OF CONTROLLED SYSTEMS DYNAMICS",
+        "title": "ON WELL-POSEDNESS OF SOME CONTROL PROBLEMS OF MASS POINT",
+        "authors": "M.M. Kozhan, A.G. Chentsov",
+        "pages": "5-15",
+        "link": "https://jais.net.ua/index.php/files/article/view/285/360",
+        "pdf_url": "2007\\1\\78.pdf"
+    },
+    "79": {
+        "article": "ADAPTIVE CONTROL AND METHODS OF IDENTIFICATION",
+        "title": "TO CONSTRUCTION OF ROBUST ALGORITHM OF GUARANTEED ESTIMATION OF LINEAR CONTROLLED SYSTEM STATE",
+        "authors": "G.M. Bakan, A.V. Sholokhov",
+        "pages": "16-25",
+        "link": "https://jais.net.ua/index.php/files/article/view/286/361",
+        "pdf_url": "2007\\1\\79.pdf"
+    },
+    "80": {
+        "article": "OPTIMIZATION  METHODS AND OPTIMAL CONTROL",
+        "title": "THE INVESTIGATION OF COMBINATORIAL OPTIMIZATION PROBLEMS OF GAME TYPE ON ARRANGEMENTS",
+        "authors": "O.A. Yemets, N.Yu. Ustyan",
+        "pages": "26-36",
+        "link": "https://jais.net.ua/index.php/files/article/view/287/362",
+        "pdf_url": "2007\\1\\80.pdf"
+    },
+    "81": {
+        "article": "CONTROL OF PHYSICAL OBJECTS AND TECHNICAL SYSTEMS",
+        "title": "ESTIMATION OF ROTOR SPEED AND ROTOR TIME CONSTANT OF INDUCTION MOTOR BY OBSERVERS",
+        "authors": "E.M. Potapenko, E.E. Potapenko",
+        "pages": "37-47",
+        "link": "https://jais.net.ua/index.php/files/article/view/288/363",
+        "pdf_url": "2007\\1\\81.pdf"
+    },
+    "82": {
+        "article": "CONTROL OF PHYSICAL OBJECTS AND TECHNICAL SYSTEMS",
+        "title": "THE CONTROL OF STANDBIES AND RECONSTRUCTIONS OPERATIONS BY MEANS OF SIMULATION MODELS UNDER THE REFUSALS ARISING IN TECHNOLOGICAL PROCESSES OF DANGEROUS PRODUCTION",
+        "authors": "I.V. Maximey, A.N. Goncharov, V.S. Smorodin",
+        "pages": "48-60",
+        "link": "https://jais.net.ua/index.php/files/article/view/289/364",
+        "pdf_url": "2007\\1\\82.pdf"
+    },
+    "83": {
+        "article": "INFORMATION PROCESSING AND PROTECTION METHODS",
+        "title": "PREDICTION OF PROTEIN SECONDARY STRUCTURE ON THE BASIS OF BAYESIAN RECOGNITION PROCEDURES",
+        "authors": "B.A. Beletskiy, S.V. Vasilyev, A.M. Gupal",
+        "pages": "61-69",
+        "link": "https://jais.net.ua/index.php/files/article/view/290/365",
+        "pdf_url": "2007\\1\\83.pdf"
+    },
+    "84": {
+        "article": "INFORMATION PROCESSING AND PROTECTION METHODS",
+        "title": "PROCESSING METHOD BASED ON COMBINING THE KALMAN FILTER AND NEURAL-FUZZY FILTER FOR NAVIGATIONAL MEASUREMENTS",
+        "authors": "A.V. Yeliseev",
+        "pages": "70-88",
+        "link": "https://jais.net.ua/index.php/files/article/view/291/366",
+        "pdf_url": "2007\\1\\84.pdf"
+    },
+    "85": {
+        "article": "INFORMATION PROCESSING AND PROTECTION METHODS",
+        "title": "THE METHOD OF ESTIMATION OF LOCAL REGULARITY OF FUNCTIONS IN SPACE OF TRANSFORM COEFFICIENTS WITH GENERALIZED WAVELETS FUNCTIONS",
+        "authors": "V.N. Krylov, M.V. Polyakova",
+        "pages": "89-96",
+        "link": "https://jais.net.ua/index.php/files/article/view/292/367",
+        "pdf_url": "2007\\1\\85.pdf"
+    },
+    "86": {
+        "article": "SPACE INFORMATION THECHNOLOGIES AND SYSTEMS",
+        "title": "METHODOLOGY OF ACCURACY ASSESSMENT OF CLASSIFICATION OF OBJECTS ON SPACE IMAGIES",
+        "authors": "M.A. Popov",
+        "pages": "97-103",
+        "link": "https://jais.net.ua/index.php/files/article/view/293/368",
+        "pdf_url": "2007\\1\\86.pdf"
+    },
+    "87": {
+        "article": "SPACE INFORMATION THECHNOLOGIES AND SYSTEMS",
+        "title": "COORDINATE-TIME METHOD OF CONTROL OF SPACE VEHICLES UNDER THE CONDITIONS OF SINGLEPOINT TECHNOLOGY",
+        "authors": "A.N. Zagorulko, A.A. Morgun, V.I. Bogomya, V.N. Mironenko, V.V. Ozhinskiy",
+        "pages": "104-108",
+        "link": "https://jais.net.ua/index.php/files/article/view/294/369",
+        "pdf_url": "2007\\1\\87.pdf"
+    },
+    "88": {
+        "article": "SPACE MONITORING",
+        "title": "ON A STRUCTURE OF THE CORONAL MASS EJECTIONS",
+        "authors": "Yu.P. Ladikov-Roev, P.P. Rabochiy",
+        "pages": "109-126",
+        "link": "https://jais.net.ua/index.php/files/article/view/295/370",
+        "pdf_url": "2007\\1\\88.pdf"
+    },
+    "89": {
+        "article": "SPACE MONITORING",
+        "title": "TIME VARIATIONS OF GLOBAL CHARACTERISTICS OF SUN ROTATION",
+        "authors": "Yu.I. Zyelyk, N.N. Stepanian, O.A. Andryeyeva",
+        "pages": "127-135",
+        "link": "https://jais.net.ua/index.php/files/article/view/296/371",
+        "pdf_url": "2007\\1\\89.pdf"
+    },
+    "90": {
+        "article": "ECONOMIC AND MANAGEMENT SYSTEMS",
+        "title": "MODELING OF OPTIMAL CONTROL PROCESSES UNDER CONDITIONS OF UNCERTAINTY IN THE ECONOMIC SYSTEMS WITH HIERARCHY",
+        "authors": "V.V. Akimenko, A.G. Nakonechnyi, I.I. Sugonyak",
+        "pages": "135-145",
+        "link": "https://jais.net.ua/index.php/files/article/view/297/372",
+        "pdf_url": "2007\\1\\90.pdf"
+    },
+    "91": {
+        "article": "ECONOMIC AND MANAGEMENT SYSTEMS",
+        "title": "OPTIMIZATION OF NEGATIVE MONOPOLIES INFLUENCES ON A STATE OF AN ECONOMIC SYSTEM",
+        "authors": "А.Ph. Makhort",
+        "pages": "146-153",
+        "link": "https://jais.net.ua/index.php/files/article/view/298/373",
+        "pdf_url": "2007\\1\\91.pdf"
+    },
+    "92": {
+        "article": "ADAPTIVE CONTROL AND METHODS OF IDENTIFICATION",
+        "title": "METHOD OF ITERATIVE IDENTIFICATION OF MULTIVARIABLE SYSTEMS OVER INEXAСT DATA. Part ІІ. ALGORITHMS",
+        "authors": "V.F. Gubarev, P.А. Tigunov",
+        "pages": "5-15",
+        "link": "https://jais.net.ua/index.php/files/article/view/299/374",
+        "pdf_url": "2007\\2\\92.pdf"
+    },
+    "93": {
+        "article": "ADAPTIVE CONTROL AND METHODS OF IDENTIFICATION",
+        "title": "SYNTHESIS OF INVARIANT AND ADAPTIVE WITH RESPECT TO CHANGE OF STATOR RESISTANCE OF VECTOR CONTROL ALGORITHMS OF INDUCTION MOTOR",
+        "authors": "E.M. Potapenko, E.E. Potapenko",
+        "pages": "16-29",
+        "link": "https://jais.net.ua/index.php/files/article/view/300/375",
+        "pdf_url": "2007\\2\\93.pdf"
+    },
+    "94": {
+        "article": "PROBLEMS OF CONTROLLED SYSTEMS DYNAMICS",
+        "title": "INTELLECTUAL METHOD OF COMPUTER CONSTRUCTION OF A BORDER OF AN INCLUSIONS CONE CASING OF A NONLINEAR DYNAMIC CONTROL SYSTEM",
+        "authors": "S.V. Pavlova",
+        "pages": "30-39",
+        "link": "https://jais.net.ua/index.php/files/article/view/301/376",
+        "pdf_url": "2007\\2\\94.pdf"
+    },
+    "95": {
+        "article": "MATHEMATICAL SIMULATION AND STUDY OF COMPLEX CONTROLLED SYSTEMS",
+        "title": "FUZZY EXPERT INFORMATION PROCESSING IN TECHNOLOGY FORESIGHT. Part I",
+        "authors": "N.D. Pankratova, N.I. Nedashkovskaya",
+        "pages": "40-55",
+        "link": "https://jais.net.ua/index.php/files/article/view/302/377",
+        "pdf_url": "2007\\2\\95.pdf"
+    },
+    "96": {
+        "article": "CONTROL OF PHYSICAL OBJECTS AND TECHNICAL SYSTEMS",
+        "title": "APPLICATION OF OPTIMUM REGULATORS FOR MULTIDIMENSIONAL TECHNOLOGICAL OBJECTS",
+        "authors": "N.N. Lutskaya, A.P. Ladanyuk",
+        "pages": "56-63",
+        "link": "https://jais.net.ua/index.php/files/article/view/303/378",
+        "pdf_url": "2007\\2\\96.pdf"
+    },
+    "97": {
+        "article": "CONTROL OF PHYSICAL OBJECTS AND TECHNICAL SYSTEMS",
+        "title": "THE ALGORITHM OF ARTERIAL TRAFFIC CONTROL",
+        "authors": "V.M. Sineglazov, R.F. Tishchenko",
+        "pages": "64-74",
+        "link": "https://jais.net.ua/index.php/files/article/view/304/379",
+        "pdf_url": "2007\\2\\97.pdf"
+    },
+    "98": {
+        "article": "CONTROL OF THE SYSTEMS WITH DISTRIBUTED PARAMETERS, MATHEMATICAL SIMULATION",
+        "title": "SOLUTION OF INVERSE BOUNDARY THERMAL CONDUCTIVITY PROBLEMS FOR COMPOUND PIVOT",
+        "authors": "I.V. Sergienko, V.S. Deineka",
+        "pages": "75-97",
+        "link": "https://jais.net.ua/index.php/files/article/view/305/380",
+        "pdf_url": "2007\\2\\98.pdf"
+    },
+    "99": {
+        "article": "SPACE INFORMATION THECHNOLOGIES AND SYSTEMS",
+        "title": "METHODS OF SELECTION AND ANALYSIS OF LEARNING SECTIONS FOR DATA CLASSIFICATION OF DISTANT PROBING",
+        "authors": "L.V. Oreshkina",
+        "pages": "98-104",
+        "link": "https://jais.net.ua/index.php/files/article/view/306/381",
+        "pdf_url": "2007\\2\\99.pdf"
+    },
+    "100": {
+        "article": "SPACE INFORMATION THECHNOLOGIES AND SYSTEMS",
+        "title": "ANALYSIS OF NEURAL NETWORKS APPLICABILITY FOR SATELLITE DATA CLASSIFICATION",
+        "authors": "S.V. Skakun, E.V. Nasuro, A.N. Lavrenyuk, О.M. Kussul",
+        "pages": "105-117",
+        "link": "https://jais.net.ua/index.php/files/article/view/307/382",
+        "pdf_url": "2007\\2\\100.pdf"
+    },
+    "101": {
+        "article": "TECHNICAL TOOLS FOR MEASUREMENTS AND CONTROL",
+        "title": "GEOMETRIC METHODS OF ASSIGNING TOLERANCES",
+        "authors": "G.N. Shilo",
+        "pages": "118-126",
+        "link": "https://jais.net.ua/index.php/files/article/view/308/383",
+        "pdf_url": "2007\\2\\101.pdf"
+    },
+    "102": {
+        "article": "ECONOMIC AND MANAGEMENT SYSTEMS",
+        "title": "THE GENERALIZED DYNAMIC PROGRAMMING PROCEDURE FOR CONTROLLED PROCESSES WITH PROFITS",
+        "authors": "A.I. Ivaneshkin",
+        "pages": "127-133",
+        "link": "https://jais.net.ua/index.php/files/article/view/309/384",
+        "pdf_url": "2007\\2\\102.pdf"
+    },
+    "103": {
+        "article": "CONTROL IN ECONOMIC AND BIOLOGICAL SYSTEMS",
+        "title": "ALGORITHM OF ANALYSIS AND SYNTHESIS OF BIOMEDICAL IMAGES",
+        "authors": "O.N. Berezsky",
+        "pages": "134-144",
+        "link": "https://jais.net.ua/index.php/files/article/view/310/385",
+        "pdf_url": "2007\\2\\103.pdf"
+    },
+    "104": {
+        "article": "CONTROL IN ECONOMIC AND BIOLOGICAL SYSTEMS",
+        "title": "ON MODEL OF INTERACTION OF CELL ELEMENTS AT BONE TISSUE REMODELING",
+        "authors": "V.P. Martsenyuk, D.V. Vakulеnkо",
+        "pages": "145-156",
+        "link": "https://jais.net.ua/index.php/files/article/view/311/386",
+        "pdf_url": "2007\\2\\104.pdf"
+    },
+    "105": {
+        "article": "PROBLEMS OF CONTROLLED SYSTEMS DYNAMICS",
+        "title": "OPTIMIZATION OF LINEAR CONTROL SYSTEM UNDER TERMINAL CONSTRAINTS",
+        "authors": "N.V. Balashevich",
+        "pages": "5-20",
+        "link": "https://jais.net.ua/index.php/files/article/view/312/387",
+        "pdf_url": "2007\\3\\105.pdf"
+    },
+    "106": {
+        "article": "MATHEMATICAL SIMULATION AND STUDY OF COMPLEX CONTROLLED SYSTEMS",
+        "title": "ON THE PROBLEM OF EVALUATION OF PROBABILITY OF DANGEROUS AIRCRAFT APPROACH: CONDITIONS OF APPLICATION AND DIMENSION REDUCTION OF THE GENERALIZED METHOD",
+        "authors": "V.P. Kharchenko, A.G. Kukush, V.N. Vasilyev",
+        "pages": "64-71",
+        "link": "https://jais.net.ua/index.php/files/article/view/313/388",
+        "pdf_url": "2007\\3\\106.pdf"
+    },
+    "107": {
+        "article": "MATHEMATICAL SIMULATION AND STUDY OF COMPLEX CONTROLLED SYSTEMS",
+        "title": "INFLUENCE OF STRUCTURAL FEATURES ON DYNAMIC PROCESSES IN CONTROLLED GROUP MACHINE AGREGATES",
+        "authors": "V.A. Krasnoshapka",
+        "pages": "72-76",
+        "link": "https://jais.net.ua/index.php/files/article/view/314/389",
+        "pdf_url": "2007\\3\\107.pdf"
+    },
+    "108": {
+        "article": "CONTROL OF PHYSICAL OBJECTS AND TECHNICAL SYSTEMS",
+        "title": "AN AUTOMATIC CONTROL SYSTEM OF A HOMING ROCKET WITH A SCANNING SYSTEM",
+        "authors": "Z. Koruba, K. Stefanski",
+        "pages": "77-83",
+        "link": "https://jais.net.ua/index.php/files/article/view/315/390",
+        "pdf_url": "2007\\3\\108.pdf"
+    },
+    "109": {
+        "article": "CONTROL OF PHYSICAL OBJECTS AND TECHNICAL SYSTEMS",
+        "title": "THE AVERAGING METHOD OF BOUNDARY-VALUE PROBLEMS IN CONTROL OF FAST AND SLOW VARIABLES WITH DELAY",
+        "authors": "V.P. Zholtikov, V.V. Efendiev",
+        "pages": "84-92",
+        "link": "https://jais.net.ua/index.php/files/article/view/316/391",
+        "pdf_url": "2007\\3\\109.pdf"
+    },
+    "110": {
+        "article": "CONTROL OF PHYSICAL OBJECTS AND TECHNICAL SYSTEMS",
+        "title": "CUTTING OF CONTENT REDUNDANCY OF THE IMAGIES ON THE BASIS OF CLASSIFICATION OF OBJECTS AND BACKGROUND",
+        "authors": "V.G. Ivanov, M.G. Lyubarskiy, Yu.V. Lomonosov",
+        "pages": "93-102",
+        "link": "https://jais.net.ua/index.php/files/article/view/317/392",
+        "pdf_url": "2007\\3\\110.pdf"
+    },
+    "111": {
+        "article": "CONTROL OF THE SYSTEMS WITH DISTRIBUTED PARAMETERS, MATHEMATICAL SIMULATION",
+        "title": "CALL CENTER AS RETRIAL QUEUEING SYSTEM",
+        "authors": "E.V. Koba, S.V. Pustovaya",
+        "pages": "103-112",
+        "link": "https://jais.net.ua/index.php/files/article/view/318/393",
+        "pdf_url": "2007\\3\\111.pdf"
+    },
+    "112": {
+        "article": "INFORMATION PROCESSING AND PROTECTION METHODS",
+        "title": "SYGNALS ANALYSIS IN THE ADAPTIVE BASIS WITH SHIFTED ARGUMENT",
+        "authors": "I.D. Ponomareva",
+        "pages": "113-120",
+        "link": "https://jais.net.ua/index.php/files/article/view/319/394",
+        "pdf_url": "2007\\3\\112.pdf"
+    },
+    "113": {
+        "article": "INFORMATION PROCESSING AND PROTECTION METHODS",
+        "title": "APPLICATION OF QUALITATIVE PECULIARITIES OF SYNCHRONOUS TIME SERIES IN FORECASTING OF ABNORMAL PROCESSES IN DYNAMICS OF PULSE ENERGY CONVERSION SYSTEMS",
+        "authors": "Yu.V. Kolokolov, A.V. Monovskaya",
+        "pages": "121-137",
+        "link": "https://jais.net.ua/index.php/files/article/view/320/395",
+        "pdf_url": "2007\\3\\113.pdf"
+    },
+    "114": {
+        "article": "SPACE MONITORING",
+        "title": "ON THE EFFICIENT METHODS OF PROTECTION OF THE EARTH FROM ASTEROIDS",
+        "authors": "I.A. Pilkevich",
+        "pages": "138-145",
+        "link": "https://jais.net.ua/index.php/files/article/view/321/396",
+        "pdf_url": "2007\\3\\114.pdf"
+    },
+    "115": {
+        "article": "ROBOTS AND ARTIFICIAL INTELLIGENCE SYSTEMS",
+        "title": "INTELLECTUAL CONTROL SYSTEM OF THE CLINICAL DIAGNOSTICS PROCESSES",
+        "authors": "I.N. Dolgopolov",
+        "pages": "146-154",
+        "link": "https://jais.net.ua/index.php/files/article/view/322/397",
+        "pdf_url": "2007\\3\\115.pdf"
+    },
+    "116": {
+        "article": "PROBLEMS OF CONTROLLED SYSTEMS DYNAMICS",
+        "title": "ROBUST STABILITY AND SYNTHESIS OF DISCRETE CONTROL SYSTEMS FOR NONLINEAR OBJECTS",
+        "authors": "V.M. Kuntsevich",
+        "pages": "5-22",
+        "link": "https://jais.net.ua/index.php/files/article/view/323/398",
+        "pdf_url": "2007\\4\\116.pdf"
+    },
+    "117": {
+        "article": "CONTROL OF PHYSICAL OBJECTS AND TECHNICAL SYSTEMS",
+        "title": "INCREASE OF DYNAMIC PRECISION AND FIGURE OF MERITS OF TRANSIENTS OF AN AUTOMATIC CONTROL SYSTEM OF MAGNETIC LEVITATION WITH THE HELP OF DIFFERENTIAL CONNECTION: Part I. THE ANALYSIS OF RESPONSE CURVES OF AN AUTOMATIC CONTROL SYSTEM OF MAGNETIC SUSPENSION OF A TRANSPORT MEANS",
+        "authors": "G.F. Zaitsev, G.V. Bursov",
+        "pages": "23-32",
+        "link": "https://jais.net.ua/index.php/files/article/view/324/399",
+        "pdf_url": "2007\\4\\117.pdf"
+    },
+    "118": {
+        "article": "CONTROL OF THE SYSTEMS WITH DISTRIBUTED PARAMETERS, MATHEMATICAL SIMULATION",
+        "title": "AN INVERSE COMPLEX PROBLEMS SOLUTION FOR MULTICOMPONENT PSEUDOPARABOLIC DISTRIBUTED SYSTEMS",
+        "authors": "I.V. Sergienko, V.S. Deineka",
+        "pages": "33-58",
+        "link": "https://jais.net.ua/index.php/files/article/view/325/400",
+        "pdf_url": "2007\\4\\118.pdf"
+    },
+    "119": {
+        "article": "CONTROL OF THE SYSTEMS WITH DISTRIBUTED PARAMETERS, MATHEMATICAL SIMULATION",
+        "title": "MATHEMATICAL MODELING OF DYNAMICS PROCESS OF CONSOLIDATION ON THE BASIS OF SYSTEM APPROACH",
+        "authors": "V.M. Bulavatsky, V.V. Skopetsky",
+        "pages": "59-66",
+        "link": "https://jais.net.ua/index.php/files/article/view/326/401",
+        "pdf_url": "2007\\4\\119.pdf"
+    },
+    "120": {
+        "article": "CONTROL OF THE SYSTEMS WITH DISTRIBUTED PARAMETERS, MATHEMATICAL SIMULATION",
+        "title": "MATHEMATICAL MODELING OF DYNAMICS OF INFORMATIONAL ESTIMATE OF GROUND WATERS POLLUTION STATE",
+        "authors": "E.V. Zhuchenko, А.B. Kotova, S.I. Kiforenko",
+        "pages": "67-73",
+        "link": "https://jais.net.ua/index.php/files/article/view/327/402",
+        "pdf_url": "2007\\4\\120.pdf"
+    },
+    "121": {
+        "article": "CONTROL OF THE SYSTEMS WITH DISTRIBUTED PARAMETERS, MATHEMATICAL SIMULATION",
+        "title": "ANTI-DIFFUSION FLUX OPTIMIZATION IN DIFFERENCE SCHEMES FOR ADVECTION EQUATION",
+        "authors": "S.L. Kivva",
+        "pages": "74-82",
+        "link": "https://jais.net.ua/index.php/files/article/view/328/403",
+        "pdf_url": "2007\\4\\121.pdf"
+    },
+    "122": {
+        "article": "INFORMATION PROCESSING AND PROTECTION METHODS",
+        "title": "BAYESIAN NETWORK — INSTRUMENT OF DATA MINING",
+        "authors": "A.N. Terentyev, P.I. Bidyuk, L.A. Korshevnyuk",
+        "pages": "83-92",
+        "link": "https://jais.net.ua/index.php/files/article/view/329/404",
+        "pdf_url": "2007\\4\\122.pdf"
+    },
+    "123": {
+        "article": "INFORMATION PROCESSING AND PROTECTION METHODS",
+        "title": "COMPARATIVE CHARACTERISTIC OF PROGRAM MODULES OF THE COMPUTER OPTIMAL CONTROL SYSTEMS OF SOME CONTROLLED OBJECTS",
+        "authors": "V.I. Musurivskiy",
+        "pages": "93-101",
+        "link": "https://jais.net.ua/index.php/files/article/view/330/405",
+        "pdf_url": "2007\\4\\123.pdf"
+    },
+    "124": {
+        "article": "INFORMATION PROCESSING AND PROTECTION METHODS",
+        "title": "PROVIDING OF ACCURANCY AND TRANSPARENCY OF MAMDANI-TYPE FUZZY MODEL BY LEARNING ON EXPERIMENTAL DATA",
+        "authors": "S.D. Shtovba",
+        "pages": "102-114",
+        "link": "https://jais.net.ua/index.php/files/article/view/331/406",
+        "pdf_url": "2007\\4\\124.pdf"
+    },
+    "125": {
+        "article": "INFORMATION PROCESSING AND PROTECTION METHODS",
+        "title": "THE ANALYSIS OF CRYPTOSTEGANOGRAPHIC ALGORITHMS",
+        "authors": "I.V. Shvidchenko",
+        "pages": "149-155",
+        "link": "https://jais.net.ua/index.php/files/article/view/336/411",
+        "pdf_url": "2007\\4\\125.pdf"
+    },
+    "126": {
+        "article": "ECONOMIC AND MANAGEMENT SYSTEMS",
+        "title": "THE MIXED STRATEGIES OF COOPERATION AND THE GENERALIZED LEADERSHIP FOR OUTPUTS OF SYMMETRIC DUOPOLY",
+        "authors": "V.M. Gorbachuk",
+        "pages": "115-120",
+        "link": "https://jais.net.ua/index.php/files/article/view/332/407",
+        "pdf_url": "2007\\4\\126.pdf"
+    },
+    "127": {
+        "article": "ECONOMIC AND MANAGEMENT SYSTEMS",
+        "title": "TECHNOLOGICAL BASES OF INFORMATIVE INTEGRATION WITHIN THE FRAMEWORK OF SINGLE INFORMATIVE SPACE OF THE SYSTEM OF HEALTH PROTECTION",
+        "authors": "I.N. Dolgopolov",
+        "pages": "121-133",
+        "link": "https://jais.net.ua/index.php/files/article/view/333/408",
+        "pdf_url": "2007\\4\\127.pdf"
+    },
+    "128": {
+        "article": "CONTROL IN ECONOMIC AND BIOLOGICAL SYSTEMS",
+        "title": "PROTEIN SECONDARY STRUCTURE RECOGNITION PROCEDURES",
+        "authors": "B.A. Beletskiy, S.V. Vasilyev, A.A. Vagis, A.M. Gupal",
+        "pages": "134-139",
+        "link": "https://jais.net.ua/index.php/files/article/view/334/409",
+        "pdf_url": "2007\\4\\128.pdf"
+    },
+    "129": {
+        "article": "CONTROL IN ECONOMIC AND BIOLOGICAL SYSTEMS",
+        "title": "ON MODEL OF INTERACTION OF CELL ELEMENTS AT BONE TISSUE REMODELING ОN THE BASIS OF NONLINEAR PARTIAL DIFFERENTIAL EQUATIONS",
+        "authors": "V.P. Martsenyuk, D.V. Vakulеnkо",
+        "pages": "140-148",
+        "link": "https://jais.net.ua/index.php/files/article/view/335/410",
+        "pdf_url": "2007\\4\\129.pdf"
+    },
+    "130": {
+        "article": "PROBLEMS OF CONTROLLED SYSTEMS DYNAMICS",
+        "title": "STATE VECTOR RECOVERY FOR NONLINEAR DYNAMIC SYSTEMS",
+        "authors": "V.M. Kuntsevich",
+        "pages": "5-19",
+        "link": "https://jais.net.ua/index.php/files/article/view/337/412",
+        "pdf_url": "2007\\5\\130.pdf"
+    },
+    "131": {
+        "article": "ADAPTIVE CONTROL AND METHODS OF IDENTIFICATION",
+        "title": "THE SYNTHESIS OF АDАPТIVE ТERМINAL CONTROL ALGORITHM FOR INERTIAL SECONDARY ORDER SYSTEM WITH BOUNDED NOISES",
+        "authors": "D.P. Кucherov",
+        "pages": "20-28",
+        "link": "https://jais.net.ua/index.php/files/article/view/338/413",
+        "pdf_url": "2007\\5\\131.pdf"
+    },
+    "132": {
+        "article": "MATHEMATICAL SIMULATION AND STUDY OF COMPLEX CONTROLLED SYSTEMS",
+        "title": "APPLICATION OF METHODS OF MULTICRITERIA ANALYSIS FOR DECISION-MAKING IN AUTOMATED CONTROL SYSTEMS",
+        "authors": "S.V. Kovbasyuk, A.A. Pisarchuk",
+        "pages": "29-42",
+        "link": "https://jais.net.ua/index.php/files/article/view/339/414",
+        "pdf_url": "2007\\5\\132.pdf"
+    },
+    "133": {
+        "article": "CONTROL OF PHYSICAL OBJECTS AND TECHNICAL SYSTEMS",
+        "title": "SOLUTION OF COMPLEX INVERSE THERMOELASTICITY PROBLEMS",
+        "authors": "I.V. Sergienko, V.S. Deineka",
+        "pages": "64-87",
+        "link": "https://jais.net.ua/index.php/files/article/view/340/415",
+        "pdf_url": "2007\\5\\133.pdf"
+    },
+    "134": {
+        "article": "CONTROL OF THE SYSTEMS WITH DISTRIBUTED PARAMETERS, MATHEMATICAL SIMULATION",
+        "title": "OPTIMAL CONTROL FOR NONLINEAR DYNAMIC PROCESSES OF HEAT EXCHANGE IN A DISPERSE LAYER WITH THERMAL RADIATION",
+        "authors": "V.S. Melnik, T.A. Modebadze, G.A. Sokhadze",
+        "pages": "88-103",
+        "link": "https://jais.net.ua/index.php/files/article/view/341/416",
+        "pdf_url": "2007\\5\\134.pdf"
+    },
+    "135": {
+        "article": "QUALITATIVE METHODS IN CONTROLLED SYSTEMS THEORY",
+        "title": "DETERMINING EMBEDDING DIMENSION OF CHAOTIC ATTRACTORS",
+        "authors": "V.G. Gorodetskiy",
+        "pages": "104-112",
+        "link": "https://jais.net.ua/index.php/files/article/view/342/417",
+        "pdf_url": "2007\\5\\135.pdf"
+    },
+    "136": {
+        "article": "INFORMATION PROCESSING AND PROTECTION METHODS",
+        "title": "ON QUESTION OF AUTOMATIC CONSTRUCTION OF REFERENCE SCHEMES IN RELATIONAL TYPE OF DATABASES CONTROL SYSTEM",
+        "authors": "A.I. Ivaneshkin",
+        "pages": "113-118",
+        "link": "https://jais.net.ua/index.php/files/article/view/343/418",
+        "pdf_url": "2007\\5\\136.pdf"
+    },
+    "137": {
+        "article": "INFORMATION PROCESSING AND PROTECTION METHODS",
+        "title": "STRUCTURAL-FUNCTIONAL ANALYSIS OF THE GRID-SYSTEM COMPONENTS",
+        "authors": "А.Yu. Shelestov",
+        "pages": "119-132",
+        "link": "https://jais.net.ua/index.php/files/article/view/344/419",
+        "pdf_url": "2007\\5\\137.pdf"
+    },
+    "138": {
+        "article": "TECHNICAL TOOLS FOR MEASUREMENTS AND CONTROL",
+        "title": "DECOMPOSITION OF TEST MAGNETIC AND ELECTROPOTENTIAL IMAGES WITH NON-DIPOLE STRUCTURE ACCORDING TO MULTIPOLE EXPANSION",
+        "authors": "N.N. Budnyk, V.N. Budnyk",
+        "pages": "133-138",
+        "link": "https://jais.net.ua/index.php/files/article/view/345/420",
+        "pdf_url": "2007\\5\\138.pdf"
+    },
+    "139": {
+        "article": "ECONOMIC AND MANAGEMENT SYSTEMS",
+        "title": "CONCERNING TECHNOLOGY OF ELECTIONS TO VERSATILE PUBLIC ORGANIZATIONS",
+        "authors": "V.G. Totsenko",
+        "pages": "139-141",
+        "link": "https://jais.net.ua/index.php/files/article/view/346/421",
+        "pdf_url": "2007\\5\\139.pdf"
+    },
+    "140": {
+        "article": "ROBOTS AND ARTIFICIAL INTELLIGENCE SYSTEMS",
+        "title": "MATHEMATICAL MODEL OF RECOGNITION SYSTEMS WITH SMALL DATABASES",
+        "authors": "B.E. Kapustiy, B.P. Rusyn, V.A. Tayanov",
+        "pages": "142-151",
+        "link": "https://jais.net.ua/index.php/files/article/view/347/422",
+        "pdf_url": "2007\\5\\140.pdf"
+    },
+    "141": {
+        "article": "PROBLEMS OF CONTROLLED SYSTEMS DYNAMICS",
+        "title": "CONTROL OF TRAJECTORIES SET BY THE LINEAR DYNAMIC SYSTEMS WITH DISCRETE ARGUMENT",
+        "authors": "V.T. Matvienko",
+        "pages": "8-13",
+        "link": "https://jais.net.ua/index.php/files/article/view/348/423",
+        "pdf_url": "2007\\6\\141.pdf"
+    },
+    "142": {
+        "article": "PROBLEMS OF CONTROLLED SYSTEMS DYNAMICS",
+        "title": "THE PROBLEM OF STRUCTURALLY STABLE PARAMETRIZATION OF SILVESTER MATRIXES FAMILIES",
+        "authors": "V.E. Nabivach",
+        "pages": "14-25",
+        "link": "https://jais.net.ua/index.php/files/article/view/349/424",
+        "pdf_url": "2007\\6\\142.pdf"
+    },
+    "143": {
+        "article": "PROBLEMS OF CONTROLLED SYSTEMS DYNAMICS",
+        "title": "ROBUST PROPERTY AND STABILITY MARGIN OF LINEAR SYSTEMS",
+        "authors": "S.А. Dubovik",
+        "pages": "26-32",
+        "link": "https://jais.net.ua/index.php/files/article/view/350/425",
+        "pdf_url": "2007\\6\\143.pdf"
+    },
+    "144": {
+        "article": "ADAPTIVE CONTROL AND METHODS OF IDENTIFICATION",
+        "title": "STRUCTURAL IDENTIFICATION TECHNOLOGY AND SUBSEQUENT SYNTHESIS OF OPTIMAL STABILIZATION SYSTEMS OF UNSTABLE DYNAMICAL OBJECTS",
+        "authors": "L.N. Blokhin, S.I. Оsadchiy, Yu.N. Bezkorovainyi",
+        "pages": "57-65",
+        "link": "https://jais.net.ua/index.php/files/article/view/351/426",
+        "pdf_url": "2007\\6\\144.pdf"
+    },
+    "145": {
+        "article": "CONTROL OF PHYSICAL OBJECTS AND TECHNICAL SYSTEMS",
+        "title": "INCREASE OF DYNAMIC PRECISION AND FIGURE OF MERITS OF TRANSIENTS OF AN AUTOMATIC CONTROL SYSTEM OF MAGNETIC LEVITATION WITH THE HELP OF DIFFERENTIAL CONNECTION.: Part III. SIMULATION OF AN AUTOMATIC CONTROL SYSTEM OF MAGNETIC SUSPENSION OF A TRANSPORT MEANS",
+        "authors": "G.F. Zaitsev, G.V. Bursov",
+        "pages": "66-72",
+        "link": "https://jais.net.ua/index.php/files/article/view/352/427",
+        "pdf_url": "2007\\6\\145.pdf"
+    },
+    "146": {
+        "article": "METHODS OF CONTROL AND ESTIMATION UNDER UNCERTAINTY CONDITIONS",
+        "title": "THE NEW METHOD OF DESIGNING ONE CLASS OF THE FUZZY DIGITAL CONTROLLERS",
+        "authors": "V.I. Gostev",
+        "pages": "73-84",
+        "link": "https://jais.net.ua/index.php/files/article/view/353/428",
+        "pdf_url": "2007\\6\\146.pdf"
+    },
+    "147": {
+        "article": "INFORMATION PROCESSING AND PROTECTION METHODS",
+        "title": "DEVELOPMENT AND INVESTIGATION OF FILTRATION METHODS OF MANY-PHASE INDETERMINATE SIGNALS",
+        "authors": "E.M. Potapenko, E.E. Potapenko, A.V. Solomakha",
+        "pages": "85-94",
+        "link": "https://jais.net.ua/index.php/files/article/view/354/429",
+        "pdf_url": "2007\\6\\147.pdf"
+    },
+    "148": {
+        "article": "INFORMATION PROCESSING AND PROTECTION METHODS",
+        "title": "TWO-DIMENSIONAL TRAFFIC MODELS FOR WIRELESS CELLULAR TELEKOMMUNICATION NETWORKS WITH INFINITE QUEUES OF h-CALLS",
+        "authors": "Che Soong Kim, A. Z. Melikov, L. А. Ponomarenko",
+        "pages": "95-109",
+        "link": "https://jais.net.ua/index.php/files/article/view/355/430",
+        "pdf_url": "2007\\6\\148.pdf"
+    },
+    "149": {
+        "article": "TECHNICAL TOOLS FOR MEASUREMENTS AND CONTROL",
+        "title": "IMPROVED PSEUDOCURRENT DENSITY DISTRIBUTIONS OBTAINED FROM TEST MAGNETIC AND ELECTROPOTENTIAL IMAGES WITH DIPOLE STRUCTURE",
+        "authors": "N.N. Budnyk, V.N. Budnyk",
+        "pages": "110-116",
+        "link": "https://jais.net.ua/index.php/files/article/view/356/431",
+        "pdf_url": "2007\\6\\149.pdf"
+    },
+    "150": {
+        "article": "SPACE MONITORING",
+        "title": "FLOOD EXTENT EXTRACTION USING DATA FROM DIFFERENT SOURCES",
+        "authors": "N.N. Kussul, E.А. Lupian, A.Yu. Shelestov, S.V. Skakun, Yu.G. Tishchenko, L. Hluchy",
+        "pages": "117-126",
+        "link": "https://jais.net.ua/index.php/files/article/view/357/432",
+        "pdf_url": "2007\\6\\150.pdf"
+    },
+    "151": {
+        "article": "CONTROL IN ECONOMIC AND BIOLOGICAL SYSTEMS",
+        "title": "DATA ANALYSIS OF SEDIMENTATION SPEED OF THE RED CORPUSCLES IN GLIOMAS OF CEREBRAL BRAIN PROGRESSION",
+        "authors": "N.Ya. Gridina, A.M. Gupal, I.V. Sergienko, A.L. Tarasov",
+        "pages": "127-134",
+        "link": "https://jais.net.ua/index.php/files/article/view/358/433",
+        "pdf_url": "2007\\6\\151.pdf"
+    },
+    "152": {
+        "article": "ROBOTS AND ARTIFICIAL INTELLIGENCE SYSTEMS",
+        "title": "MESH CONSTRUCTION FOR COMPLEX FORM OBJECTS VISUALIZATION AND MODELING",
+        "authors": "D.P. Paukov, Е.А. Bashkov",
+        "pages": "135-144",
+        "link": "https://jais.net.ua/index.php/files/article/view/359/434",
+        "pdf_url": "2007\\6\\152.pdf"
     }
 }

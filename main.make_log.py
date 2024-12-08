@@ -304,18 +304,22 @@ def generatormisthtml(grouped, year, magazine):
 
     for parent_key, group in grouped:
         article_title = group['article_title'].iloc[0]
+        article_title = article_title.upper()
         if section_title != article_title:
             if section_title == "":
                 html_content += f"<b>{article_title}</b>\n<ul>\n \n"
                 section_title = article_title
             else:
+                html_content += "\n"
+                html_content += "\n"
                 html_content += "</ul>\n"
                 html_content += f"<b>{article_title}</b>\n<ul>\n \n"
                 section_title = article_title
-
+        else:
+            html_content += (f"<br /><br />\n"
+                             f"\n")
         title = group[group['Language'] == 'ru']['Title'].iloc[0] if not group[
             group['Language'] == 'ru'].empty else None
-        title = title.upper()
         author_ru = group[group['Language'] == 'ru']['Authors'].iloc[0] if not group[
                group['Language'] == 'ru'].empty else None
         if author_ru:
@@ -326,9 +330,11 @@ def generatormisthtml(grouped, year, magazine):
             ])
         html_content += (
             f"<b>{author_ru}</b><br />\n"
-            f"<a href=\"/dspace/handle/123456789/XXXXXX\">{title}</a><br /><br />\n"
-            f"\n")
-    html_content += "</ul>\n"
+            f"<a href=\"/dspace/handle/123456789/XXXXXX\">{title}</a>"
+            )
+    html_content += "\n"
+    html_content += "\n"
+    html_content += "</ul>\n\n"
     with open(file, "w", encoding="utf-8") as f:
         (f.write(html_content))
     with open(file1, "w", encoding="utf-8") as f1:
@@ -369,10 +375,17 @@ def Finish_file(group, log_file, parent_key, article=False):
     author_en = author_en.split(", ")[0].split(" ")[-1] if author_en else None
 
     # print(f"{author_ru} автор айди {key} !!!")
-    if author_ua:
-        author_ua = ", ".join([
+    # if author_ua:
+    #     author_ua = ", ".join([
+    #         f"{parts[1]} {parts[0]}" if len(parts) > 1 else f"{block[3:].lstrip('.')} {block[:3]}"
+    #         for block in author_ua.split(", ")
+    #         for parts in [block.split()] if len(block.split()) > 1 or "." in block
+    #     ])
+    author_ru_second = ""
+    if author_ru:
+        author_ru_second = ", ".join([
             f"{parts[1]} {parts[0]}" if len(parts) > 1 else f"{block[3:].lstrip('.')} {block[:3]}"
-            for block in author_ua.split(", ")
+            for block in author_ru.split(", ")
             for parts in [block.split()] if len(block.split()) > 1 or "." in block
         ])
 
@@ -387,7 +400,7 @@ def Finish_file(group, log_file, parent_key, article=False):
     key_padding = "#" * len(str(key))
     content = (f"{key}) {author_en}\n"  # authors
                f"{author_ru}\n"
-               f"{author_ua}\n"
+               f"{author_ru_second}\n"
                f"\n"
                f"{title_ru}\n"  # titles
                f"{title_ua}\n"
